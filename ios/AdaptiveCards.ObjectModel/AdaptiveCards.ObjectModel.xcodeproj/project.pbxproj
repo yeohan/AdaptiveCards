@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52496D0C1E538E1200D71552 /* AdaptiveCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496CF91E538E1200D71552 /* AdaptiveCard.cpp */; };
+		52496D0D1E538E1200D71552 /* AdaptiveCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496CFA1E538E1200D71552 /* AdaptiveCard.h */; };
+		52496D0E1E538E1200D71552 /* AdaptiveCardParseException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496CFB1E538E1200D71552 /* AdaptiveCardParseException.cpp */; };
+		52496D0F1E538E1200D71552 /* AdaptiveCardParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496CFC1E538E1200D71552 /* AdaptiveCardParseException.h */; };
+		52496D101E538E1200D71552 /* BaseCardElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496CFD1E538E1200D71552 /* BaseCardElement.cpp */; };
+		52496D111E538E1200D71552 /* BaseCardElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496CFE1E538E1200D71552 /* BaseCardElement.h */; };
+		52496D121E538E1200D71552 /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496CFF1E538E1200D71552 /* Container.cpp */; };
+		52496D131E538E1200D71552 /* Container.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D001E538E1200D71552 /* Container.h */; };
+		52496D141E538E1200D71552 /* Enums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496D011E538E1200D71552 /* Enums.cpp */; };
+		52496D151E538E1200D71552 /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D021E538E1200D71552 /* Enums.h */; };
+		52496D161E538E1200D71552 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496D031E538E1200D71552 /* Image.cpp */; };
+		52496D171E538E1200D71552 /* Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D041E538E1200D71552 /* Image.h */; };
+		52496D181E538E1200D71552 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496D061E538E1200D71552 /* jsoncpp.cpp */; };
+		52496D191E538E1200D71552 /* ParseUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496D071E538E1200D71552 /* ParseUtil.cpp */; };
+		52496D1A1E538E1200D71552 /* ParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D081E538E1200D71552 /* ParseUtil.h */; };
+		52496D1B1E538E1200D71552 /* pch.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D091E538E1200D71552 /* pch.h */; };
+		52496D1C1E538E1200D71552 /* TextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52496D0A1E538E1200D71552 /* TextBlock.cpp */; };
+		52496D1D1E538E1200D71552 /* TextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 52496D0B1E538E1200D71552 /* TextBlock.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52496CE91E538DA200D71552 /* libAdaptiveCards.ObjectModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAdaptiveCards.ObjectModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52496CF91E538E1200D71552 /* AdaptiveCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCard.cpp; path = ../../../Shared/ObjectModel/AdaptiveCard.cpp; sourceTree = "<group>"; };
+		52496CFA1E538E1200D71552 /* AdaptiveCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdaptiveCard.h; path = ../../../Shared/ObjectModel/AdaptiveCard.h; sourceTree = "<group>"; };
+		52496CFB1E538E1200D71552 /* AdaptiveCardParseException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCardParseException.cpp; path = ../../../Shared/ObjectModel/AdaptiveCardParseException.cpp; sourceTree = "<group>"; };
+		52496CFC1E538E1200D71552 /* AdaptiveCardParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdaptiveCardParseException.h; path = ../../../Shared/ObjectModel/AdaptiveCardParseException.h; sourceTree = "<group>"; };
+		52496CFD1E538E1200D71552 /* BaseCardElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseCardElement.cpp; path = ../../../Shared/ObjectModel/BaseCardElement.cpp; sourceTree = "<group>"; };
+		52496CFE1E538E1200D71552 /* BaseCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCardElement.h; path = ../../../Shared/ObjectModel/BaseCardElement.h; sourceTree = "<group>"; };
+		52496CFF1E538E1200D71552 /* Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Container.cpp; path = ../../../Shared/ObjectModel/Container.cpp; sourceTree = "<group>"; };
+		52496D001E538E1200D71552 /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Container.h; path = ../../../Shared/ObjectModel/Container.h; sourceTree = "<group>"; };
+		52496D011E538E1200D71552 /* Enums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enums.cpp; path = ../../../Shared/ObjectModel/Enums.cpp; sourceTree = "<group>"; };
+		52496D021E538E1200D71552 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = ../../../Shared/ObjectModel/Enums.h; sourceTree = "<group>"; };
+		52496D031E538E1200D71552 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Image.cpp; path = ../../../Shared/ObjectModel/Image.cpp; sourceTree = "<group>"; };
+		52496D041E538E1200D71552 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = ../../../Shared/ObjectModel/Image.h; sourceTree = "<group>"; };
+		52496D051E538E1200D71552 /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; name = json; path = ../../../Shared/ObjectModel/json; sourceTree = "<group>"; };
+		52496D061E538E1200D71552 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsoncpp.cpp; path = ../../../Shared/ObjectModel/jsoncpp.cpp; sourceTree = "<group>"; };
+		52496D071E538E1200D71552 /* ParseUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParseUtil.cpp; path = ../../../Shared/ObjectModel/ParseUtil.cpp; sourceTree = "<group>"; };
+		52496D081E538E1200D71552 /* ParseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseUtil.h; path = ../../../Shared/ObjectModel/ParseUtil.h; sourceTree = "<group>"; };
+		52496D091E538E1200D71552 /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ../../../Shared/ObjectModel/pch.h; sourceTree = "<group>"; };
+		52496D0A1E538E1200D71552 /* TextBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextBlock.cpp; path = ../../../Shared/ObjectModel/TextBlock.cpp; sourceTree = "<group>"; };
+		52496D0B1E538E1200D71552 /* TextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextBlock.h; path = ../../../Shared/ObjectModel/TextBlock.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52496CE61E538DA200D71552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52496CE01E538DA200D71552 = {
+			isa = PBXGroup;
+			children = (
+				52496CEB1E538DA200D71552 /* AdaptiveCards.ObjectModel */,
+				52496CEA1E538DA200D71552 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52496CEA1E538DA200D71552 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52496CE91E538DA200D71552 /* libAdaptiveCards.ObjectModel.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52496CEB1E538DA200D71552 /* AdaptiveCards.ObjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				52496CF91E538E1200D71552 /* AdaptiveCard.cpp */,
+				52496CFA1E538E1200D71552 /* AdaptiveCard.h */,
+				52496CFB1E538E1200D71552 /* AdaptiveCardParseException.cpp */,
+				52496CFC1E538E1200D71552 /* AdaptiveCardParseException.h */,
+				52496CFD1E538E1200D71552 /* BaseCardElement.cpp */,
+				52496CFE1E538E1200D71552 /* BaseCardElement.h */,
+				52496CFF1E538E1200D71552 /* Container.cpp */,
+				52496D001E538E1200D71552 /* Container.h */,
+				52496D011E538E1200D71552 /* Enums.cpp */,
+				52496D021E538E1200D71552 /* Enums.h */,
+				52496D031E538E1200D71552 /* Image.cpp */,
+				52496D041E538E1200D71552 /* Image.h */,
+				52496D051E538E1200D71552 /* json */,
+				52496D061E538E1200D71552 /* jsoncpp.cpp */,
+				52496D071E538E1200D71552 /* ParseUtil.cpp */,
+				52496D081E538E1200D71552 /* ParseUtil.h */,
+				52496D091E538E1200D71552 /* pch.h */,
+				52496D0A1E538E1200D71552 /* TextBlock.cpp */,
+				52496D0B1E538E1200D71552 /* TextBlock.h */,
+			);
+			path = AdaptiveCards.ObjectModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		52496CE71E538DA200D71552 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52496D171E538E1200D71552 /* Image.h in Headers */,
+				52496D131E538E1200D71552 /* Container.h in Headers */,
+				52496D0F1E538E1200D71552 /* AdaptiveCardParseException.h in Headers */,
+				52496D111E538E1200D71552 /* BaseCardElement.h in Headers */,
+				52496D1D1E538E1200D71552 /* TextBlock.h in Headers */,
+				52496D0D1E538E1200D71552 /* AdaptiveCard.h in Headers */,
+				52496D1A1E538E1200D71552 /* ParseUtil.h in Headers */,
+				52496D1B1E538E1200D71552 /* pch.h in Headers */,
+				52496D151E538E1200D71552 /* Enums.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		52496CE81E538DA200D71552 /* AdaptiveCards.ObjectModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52496CF41E538DA200D71552 /* Build configuration list for PBXNativeTarget "AdaptiveCards.ObjectModel" */;
+			buildPhases = (
+				52496CE51E538DA200D71552 /* Sources */,
+				52496CE61E538DA200D71552 /* Frameworks */,
+				52496CE71E538DA200D71552 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdaptiveCards.ObjectModel;
+			productName = AdaptiveCards.ObjectModel;
+			productReference = 52496CE91E538DA200D71552 /* libAdaptiveCards.ObjectModel.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52496CE11E538DA200D71552 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					52496CE81E538DA200D71552 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 52496CE41E538DA200D71552 /* Build configuration list for PBXProject "AdaptiveCards.ObjectModel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52496CE01E538DA200D71552;
+			productRefGroup = 52496CEA1E538DA200D71552 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52496CE81E538DA200D71552 /* AdaptiveCards.ObjectModel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52496CE51E538DA200D71552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52496D0C1E538E1200D71552 /* AdaptiveCard.cpp in Sources */,
+				52496D121E538E1200D71552 /* Container.cpp in Sources */,
+				52496D0E1E538E1200D71552 /* AdaptiveCardParseException.cpp in Sources */,
+				52496D161E538E1200D71552 /* Image.cpp in Sources */,
+				52496D101E538E1200D71552 /* BaseCardElement.cpp in Sources */,
+				52496D141E538E1200D71552 /* Enums.cpp in Sources */,
+				52496D181E538E1200D71552 /* jsoncpp.cpp in Sources */,
+				52496D191E538E1200D71552 /* ParseUtil.cpp in Sources */,
+				52496D1C1E538E1200D71552 /* TextBlock.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52496CF21E538DA200D71552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52496CF31E538DA200D71552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52496CF51E538DA200D71552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52496CF61E538DA200D71552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52496CE41E538DA200D71552 /* Build configuration list for PBXProject "AdaptiveCards.ObjectModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52496CF21E538DA200D71552 /* Debug */,
+				52496CF31E538DA200D71552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52496CF41E538DA200D71552 /* Build configuration list for PBXNativeTarget "AdaptiveCards.ObjectModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52496CF51E538DA200D71552 /* Debug */,
+				52496CF61E538DA200D71552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52496CE11E538DA200D71552 /* Project object */;
+}
