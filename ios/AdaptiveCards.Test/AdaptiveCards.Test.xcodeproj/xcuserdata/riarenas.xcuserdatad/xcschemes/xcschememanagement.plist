@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AdaptiveCards.ObjectModel.xcscheme</key>
+		<key>AdaptiveCards.Test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>52E62BD41E53ABAD00673BE3</key>
+		<key>52E62C041E53AC8900673BE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
