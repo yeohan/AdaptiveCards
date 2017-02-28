@@ -1,0 +1,25 @@
+DjinniBaseCardElement = interface +c {
+    SetSpeak(speak: string);
+    GetSpeak(): string;
+    Deseralize(jsonString: string);
+}
+
+DjinniTextColor = enum {
+default;
+}
+
+DjinniAdaptiveCard = interface +c {
+    getItems(): list<DjinniBaseCardElement>;
+}
+
+DjinniTextBlock = interface +c {
+    SetText(text: string);
+    GetText(): string;
+    SetWrap(wrap: bool);
+    GetWrap(): bool;
+    SetTextColor(textColor: DjinniTextColor);
+    GetTextColor() : DjinniTextColor;
+    AsBaseCardElement() : DjinniBaseCardElement;
+}
+
+

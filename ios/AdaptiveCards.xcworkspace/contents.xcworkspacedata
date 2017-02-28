@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AdaptiveCards.Objc/AdaptiveCards.Objc.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AdaptiveCards.Test/AdaptiveCards.Test.xcodeproj">
    </FileRef>
    <FileRef
