@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5265A3651E675A5F0099D28B /* djinni_common.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A34F1E675A5F0099D28B /* djinni_common.hpp */; };
+		5265A36B1E675A5F0099D28B /* DJICppWrapperCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A35B1E675A5F0099D28B /* DJICppWrapperCache+Private.h */; };
+		5265A36C1E675A5F0099D28B /* DJIError.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A35C1E675A5F0099D28B /* DJIError.h */; };
+		5265A36D1E675A5F0099D28B /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265A35D1E675A5F0099D28B /* DJIError.mm */; };
+		5265A36E1E675A5F0099D28B /* DJIMarshal+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A35E1E675A5F0099D28B /* DJIMarshal+Private.h */; };
+		5265A36F1E675A5F0099D28B /* DJIObjcWrapperCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A35F1E675A5F0099D28B /* DJIObjcWrapperCache+Private.h */; };
+		5265A3701E675A5F0099D28B /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265A3601E675A5F0099D28B /* DJIProxyCaches.mm */; };
+		5265A3711E675A5F0099D28B /* proxy_cache_impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3611E675A5F0099D28B /* proxy_cache_impl.hpp */; };
+		5265A3721E675A5F0099D28B /* proxy_cache_interface.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3621E675A5F0099D28B /* proxy_cache_interface.hpp */; };
+		5265A3C51E675C920099D28B /* DjinniAdaptiveCard.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3B51E675C920099D28B /* DjinniAdaptiveCard.hpp */; };
+		5265A3C61E675C920099D28B /* DjinniBaseCardElement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3B61E675C920099D28B /* DjinniBaseCardElement.hpp */; };
+		5265A3C71E675C920099D28B /* DjinniTextBlock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3B71E675C920099D28B /* DjinniTextBlock.hpp */; };
+		5265A3C81E675C920099D28B /* DjinniTextColor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3B81E675C920099D28B /* DjinniTextColor.hpp */; };
+		5265A3C91E675C920099D28B /* ACDjinniAdaptiveCard+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3BA1E675C920099D28B /* ACDjinniAdaptiveCard+Private.h */; };
+		5265A3CA1E675C920099D28B /* ACDjinniAdaptiveCard+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265A3BB1E675C920099D28B /* ACDjinniAdaptiveCard+Private.mm */; };
+		5265A3CB1E675C920099D28B /* ACDjinniAdaptiveCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3BC1E675C920099D28B /* ACDjinniAdaptiveCard.h */; };
+		5265A3CC1E675C920099D28B /* ACDjinniBaseCardElement+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3BD1E675C920099D28B /* ACDjinniBaseCardElement+Private.h */; };
+		5265A3CD1E675C920099D28B /* ACDjinniBaseCardElement+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265A3BE1E675C920099D28B /* ACDjinniBaseCardElement+Private.mm */; };
+		5265A3CE1E675C920099D28B /* ACDjinniBaseCardElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3BF1E675C920099D28B /* ACDjinniBaseCardElement.h */; };
+		5265A3CF1E675C920099D28B /* ACDjinniTextBlock+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3C01E675C920099D28B /* ACDjinniTextBlock+Private.h */; };
+		5265A3D01E675C920099D28B /* ACDjinniTextBlock+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265A3C11E675C920099D28B /* ACDjinniTextBlock+Private.mm */; };
+		5265A3D11E675C920099D28B /* ACDjinniTextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3C21E675C920099D28B /* ACDjinniTextBlock.h */; };
+		5265A3D21E675C920099D28B /* ACDjinniTextColor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3C31E675C920099D28B /* ACDjinniTextColor+Private.h */; };
+		5265A3D31E675C920099D28B /* ACDjinniTextColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265A3C41E675C920099D28B /* ACDjinniTextColor.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5265A3201E6759710099D28B /* libobject-model.djinni.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libobject-model.djinni.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5265A34F1E675A5F0099D28B /* djinni_common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = djinni_common.hpp; sourceTree = "<group>"; };
+		5265A35B1E675A5F0099D28B /* DJICppWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJICppWrapperCache+Private.h"; sourceTree = "<group>"; };
+		5265A35C1E675A5F0099D28B /* DJIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIError.h; sourceTree = "<group>"; };
+		5265A35D1E675A5F0099D28B /* DJIError.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIError.mm; sourceTree = "<group>"; };
+		5265A35E1E675A5F0099D28B /* DJIMarshal+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIMarshal+Private.h"; sourceTree = "<group>"; };
+		5265A35F1E675A5F0099D28B /* DJIObjcWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIObjcWrapperCache+Private.h"; sourceTree = "<group>"; };
+		5265A3601E675A5F0099D28B /* DJIProxyCaches.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIProxyCaches.mm; sourceTree = "<group>"; };
+		5265A3611E675A5F0099D28B /* proxy_cache_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = proxy_cache_impl.hpp; sourceTree = "<group>"; };
+		5265A3621E675A5F0099D28B /* proxy_cache_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = proxy_cache_interface.hpp; sourceTree = "<group>"; };
+		5265A3631E675A5F0099D28B /* support-lib.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "support-lib.iml"; sourceTree = "<group>"; };
+		5265A3641E675A5F0099D28B /* support_lib.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = support_lib.gyp; sourceTree = "<group>"; };
+		5265A3B51E675C920099D28B /* DjinniAdaptiveCard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniAdaptiveCard.hpp; sourceTree = "<group>"; };
+		5265A3B61E675C920099D28B /* DjinniBaseCardElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniBaseCardElement.hpp; sourceTree = "<group>"; };
+		5265A3B71E675C920099D28B /* DjinniTextBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniTextBlock.hpp; sourceTree = "<group>"; };
+		5265A3B81E675C920099D28B /* DjinniTextColor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniTextColor.hpp; sourceTree = "<group>"; };
+		5265A3BA1E675C920099D28B /* ACDjinniAdaptiveCard+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniAdaptiveCard+Private.h"; sourceTree = "<group>"; };
+		5265A3BB1E675C920099D28B /* ACDjinniAdaptiveCard+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniAdaptiveCard+Private.mm"; sourceTree = "<group>"; };
+		5265A3BC1E675C920099D28B /* ACDjinniAdaptiveCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniAdaptiveCard.h; sourceTree = "<group>"; };
+		5265A3BD1E675C920099D28B /* ACDjinniBaseCardElement+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniBaseCardElement+Private.h"; sourceTree = "<group>"; };
+		5265A3BE1E675C920099D28B /* ACDjinniBaseCardElement+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniBaseCardElement+Private.mm"; sourceTree = "<group>"; };
+		5265A3BF1E675C920099D28B /* ACDjinniBaseCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniBaseCardElement.h; sourceTree = "<group>"; };
+		5265A3C01E675C920099D28B /* ACDjinniTextBlock+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniTextBlock+Private.h"; sourceTree = "<group>"; };
+		5265A3C11E675C920099D28B /* ACDjinniTextBlock+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniTextBlock+Private.mm"; sourceTree = "<group>"; };
+		5265A3C21E675C920099D28B /* ACDjinniTextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniTextBlock.h; sourceTree = "<group>"; };
+		5265A3C31E675C920099D28B /* ACDjinniTextColor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniTextColor+Private.h"; sourceTree = "<group>"; };
+		5265A3C41E675C920099D28B /* ACDjinniTextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniTextColor.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5265A31D1E6759710099D28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5265A3171E6759710099D28B = {
+			isa = PBXGroup;
+			children = (
+				5265A3B31E675C920099D28B /* generated-src */,
+				5265A34E1E675A5F0099D28B /* support-lib */,
+				5265A3211E6759710099D28B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5265A3211E6759710099D28B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5265A3201E6759710099D28B /* libobject-model.djinni.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5265A34E1E675A5F0099D28B /* support-lib */ = {
+			isa = PBXGroup;
+			children = (
+				5265A34F1E675A5F0099D28B /* djinni_common.hpp */,
+				5265A35A1E675A5F0099D28B /* objc */,
+				5265A3611E675A5F0099D28B /* proxy_cache_impl.hpp */,
+				5265A3621E675A5F0099D28B /* proxy_cache_interface.hpp */,
+				5265A3631E675A5F0099D28B /* support-lib.iml */,
+				5265A3641E675A5F0099D28B /* support_lib.gyp */,
+			);
+			path = "support-lib";
+			sourceTree = "<group>";
+		};
+		5265A35A1E675A5F0099D28B /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				5265A35B1E675A5F0099D28B /* DJICppWrapperCache+Private.h */,
+				5265A35C1E675A5F0099D28B /* DJIError.h */,
+				5265A35D1E675A5F0099D28B /* DJIError.mm */,
+				5265A35E1E675A5F0099D28B /* DJIMarshal+Private.h */,
+				5265A35F1E675A5F0099D28B /* DJIObjcWrapperCache+Private.h */,
+				5265A3601E675A5F0099D28B /* DJIProxyCaches.mm */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		5265A3B31E675C920099D28B /* generated-src */ = {
+			isa = PBXGroup;
+			children = (
+				5265A3B41E675C920099D28B /* cpp */,
+				5265A3B91E675C920099D28B /* objc */,
+			);
+			path = "generated-src";
+			sourceTree = "<group>";
+		};
+		5265A3B41E675C920099D28B /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				5265A3B51E675C920099D28B /* DjinniAdaptiveCard.hpp */,
+				5265A3B61E675C920099D28B /* DjinniBaseCardElement.hpp */,
+				5265A3B71E675C920099D28B /* DjinniTextBlock.hpp */,
+				5265A3B81E675C920099D28B /* DjinniTextColor.hpp */,
+			);
+			path = cpp;
+			sourceTree = "<group>";
+		};
+		5265A3B91E675C920099D28B /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				5265A3BA1E675C920099D28B /* ACDjinniAdaptiveCard+Private.h */,
+				5265A3BB1E675C920099D28B /* ACDjinniAdaptiveCard+Private.mm */,
+				5265A3BC1E675C920099D28B /* ACDjinniAdaptiveCard.h */,
+				5265A3BD1E675C920099D28B /* ACDjinniBaseCardElement+Private.h */,
+				5265A3BE1E675C920099D28B /* ACDjinniBaseCardElement+Private.mm */,
+				5265A3BF1E675C920099D28B /* ACDjinniBaseCardElement.h */,
+				5265A3C01E675C920099D28B /* ACDjinniTextBlock+Private.h */,
+				5265A3C11E675C920099D28B /* ACDjinniTextBlock+Private.mm */,
+				5265A3C21E675C920099D28B /* ACDjinniTextBlock.h */,
+				5265A3C31E675C920099D28B /* ACDjinniTextColor+Private.h */,
+				5265A3C41E675C920099D28B /* ACDjinniTextColor.h */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5265A31E1E6759710099D28B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5265A3C51E675C920099D28B /* DjinniAdaptiveCard.hpp in Headers */,
+				5265A3C71E675C920099D28B /* DjinniTextBlock.hpp in Headers */,
+				5265A3D11E675C920099D28B /* ACDjinniTextBlock.h in Headers */,
+				5265A3711E675A5F0099D28B /* proxy_cache_impl.hpp in Headers */,
+				5265A3721E675A5F0099D28B /* proxy_cache_interface.hpp in Headers */,
+				5265A3C61E675C920099D28B /* DjinniBaseCardElement.hpp in Headers */,
+				5265A36C1E675A5F0099D28B /* DJIError.h in Headers */,
+				5265A3CE1E675C920099D28B /* ACDjinniBaseCardElement.h in Headers */,
+				5265A3CF1E675C920099D28B /* ACDjinniTextBlock+Private.h in Headers */,
+				5265A3C91E675C920099D28B /* ACDjinniAdaptiveCard+Private.h in Headers */,
+				5265A36B1E675A5F0099D28B /* DJICppWrapperCache+Private.h in Headers */,
+				5265A3651E675A5F0099D28B /* djinni_common.hpp in Headers */,
+				5265A3C81E675C920099D28B /* DjinniTextColor.hpp in Headers */,
+				5265A3D31E675C920099D28B /* ACDjinniTextColor.h in Headers */,
+				5265A3CC1E675C920099D28B /* ACDjinniBaseCardElement+Private.h in Headers */,
+				5265A36F1E675A5F0099D28B /* DJIObjcWrapperCache+Private.h in Headers */,
+				5265A3CB1E675C920099D28B /* ACDjinniAdaptiveCard.h in Headers */,
+				5265A36E1E675A5F0099D28B /* DJIMarshal+Private.h in Headers */,
+				5265A3D21E675C920099D28B /* ACDjinniTextColor+Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5265A31F1E6759710099D28B /* object-model.djinni */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5265A3291E6759710099D28B /* Build configuration list for PBXNativeTarget "object-model.djinni" */;
+			buildPhases = (
+				5265A31C1E6759710099D28B /* Sources */,
+				5265A31D1E6759710099D28B /* Frameworks */,
+				5265A31E1E6759710099D28B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "object-model.djinni";
+			productName = "djinni-generated";
+			productReference = 5265A3201E6759710099D28B /* libobject-model.djinni.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5265A3181E6759710099D28B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					5265A31F1E6759710099D28B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5265A31B1E6759710099D28B /* Build configuration list for PBXProject "object-model.djinni" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5265A3171E6759710099D28B;
+			productRefGroup = 5265A3211E6759710099D28B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5265A31F1E6759710099D28B /* object-model.djinni */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5265A31C1E6759710099D28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5265A3CA1E675C920099D28B /* ACDjinniAdaptiveCard+Private.mm in Sources */,
+				5265A36D1E675A5F0099D28B /* DJIError.mm in Sources */,
+				5265A3701E675A5F0099D28B /* DJIProxyCaches.mm in Sources */,
+				5265A3CD1E675C920099D28B /* ACDjinniBaseCardElement+Private.mm in Sources */,
+				5265A3D01E675C920099D28B /* ACDjinniTextBlock+Private.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5265A3271E6759710099D28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5265A3281E6759710099D28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5265A32A1E6759710099D28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5265A32B1E6759710099D28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5265A31B1E6759710099D28B /* Build configuration list for PBXProject "object-model.djinni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265A3271E6759710099D28B /* Debug */,
+				5265A3281E6759710099D28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5265A3291E6759710099D28B /* Build configuration list for PBXNativeTarget "object-model.djinni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265A32A1E6759710099D28B /* Debug */,
+				5265A32B1E6759710099D28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5265A3181E6759710099D28B /* Project object */;
+}

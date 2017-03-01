@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AdaptiveCards.Objc/AdaptiveCards.Objc.xcodeproj">
+      location = "group:object-model.djinni/object-model.djinni.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:AdaptiveCards.Test/AdaptiveCards.Test.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:AdaptiveCards.ObjectModel/AdaptiveCards.ObjectModel.xcodeproj">
+      location = "group:object-model.shared/object-model.shared.xcodeproj">
    </FileRef>
 </Workspace>
