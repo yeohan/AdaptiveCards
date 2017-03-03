@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A43A0AE0E5E70FE21058981387D5B2D42FFC281B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A43A0AE0E5E70FE21058981387D5B2D42FFC281B" : 9223372036854775807,
+    "4E8EC1E97A744AECB2BFFE9D3D48C062D250382B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3C902E70-C14A-487C-B6ED-BB3A25263F14",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A43A0AE0E5E70FE21058981387D5B2D42FFC281B" : "AdaptiveCards\/",
+    "4E8EC1E97A744AECB2BFFE9D3D48C062D250382B" : "AdaptiveCards\/ios\/deps\/djinni\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "adaptivecards",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/adaptivecards.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dropbox\/djinni.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4E8EC1E97A744AECB2BFFE9D3D48C062D250382B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Microsoft\/AdaptiveCards.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A43A0AE0E5E70FE21058981387D5B2D42FFC281B"
+    }
+  ]
+}

@@ -2,9 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:object-model.djinni/object-model.djinni.xcodeproj">
+      location = "group:visualizer/swift/swiftvisualizer/swiftvisualizer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:object-model.shared/object-model.shared.xcodeproj">
+      location = "group:visualizer/objc/objcvisualizer/objcvisualizer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:build_ios/deps/djinni/support-lib/support_lib.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:libadaptivecards/libadaptivecards.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5265B9581E68F3BC0099D28B /* DjinniAdaptiveCard.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9481E68F3BC0099D28B /* DjinniAdaptiveCard.hpp */; };
+		5265B9591E68F3BC0099D28B /* DjinniBaseCardElement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9491E68F3BC0099D28B /* DjinniBaseCardElement.hpp */; };
+		5265B95A1E68F3BC0099D28B /* DjinniTextBlock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265B94A1E68F3BC0099D28B /* DjinniTextBlock.hpp */; };
+		5265B95B1E68F3BC0099D28B /* DjinniTextColor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265B94B1E68F3BC0099D28B /* DjinniTextColor.hpp */; };
+		5265B95C1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B94D1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.h */; };
+		5265B95D1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265B94E1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.mm */; };
+		5265B95E1E68F3BC0099D28B /* ACDjinniAdaptiveCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B94F1E68F3BC0099D28B /* ACDjinniAdaptiveCard.h */; };
+		5265B95F1E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9501E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.h */; };
+		5265B9601E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9511E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.mm */; };
+		5265B9611E68F3BC0099D28B /* ACDjinniBaseCardElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9521E68F3BC0099D28B /* ACDjinniBaseCardElement.h */; };
+		5265B9621E68F3BC0099D28B /* ACDjinniTextBlock+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9531E68F3BC0099D28B /* ACDjinniTextBlock+Private.h */; };
+		5265B9631E68F3BC0099D28B /* ACDjinniTextBlock+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9541E68F3BC0099D28B /* ACDjinniTextBlock+Private.mm */; };
+		5265B9641E68F3BC0099D28B /* ACDjinniTextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9551E68F3BC0099D28B /* ACDjinniTextBlock.h */; };
+		5265B9651E68F3BC0099D28B /* ACDjinniTextColor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9561E68F3BC0099D28B /* ACDjinniTextColor+Private.h */; };
+		5265B9661E68F3BC0099D28B /* ACDjinniTextColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9571E68F3BC0099D28B /* ACDjinniTextColor.h */; };
+		5265B96A1E68F3D80099D28B /* TextBlockImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9681E68F3D80099D28B /* TextBlockImpl.cpp */; };
+		5265B96B1E68F3D80099D28B /* TextBlockImpl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9691E68F3D80099D28B /* TextBlockImpl.hpp */; };
+		5265B9C71E69DFE00099D28B /* AdaptiveCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9B21E69DFE00099D28B /* AdaptiveCard.cpp */; };
+		5265B9C81E69DFE00099D28B /* AdaptiveCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9B31E69DFE00099D28B /* AdaptiveCard.h */; };
+		5265B9C91E69DFE00099D28B /* AdaptiveCardParseException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9B41E69DFE00099D28B /* AdaptiveCardParseException.cpp */; };
+		5265B9CA1E69DFE00099D28B /* AdaptiveCardParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9B51E69DFE00099D28B /* AdaptiveCardParseException.h */; };
+		5265B9CB1E69DFE00099D28B /* BaseCardElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9B61E69DFE00099D28B /* BaseCardElement.cpp */; };
+		5265B9CC1E69DFE00099D28B /* BaseCardElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9B71E69DFE00099D28B /* BaseCardElement.h */; };
+		5265B9CD1E69DFE00099D28B /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9B81E69DFE00099D28B /* Container.cpp */; };
+		5265B9CE1E69DFE00099D28B /* Container.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9B91E69DFE00099D28B /* Container.h */; };
+		5265B9CF1E69DFE00099D28B /* Enums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9BA1E69DFE00099D28B /* Enums.cpp */; };
+		5265B9D01E69DFE00099D28B /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9BB1E69DFE00099D28B /* Enums.h */; };
+		5265B9D11E69DFE00099D28B /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9BC1E69DFE00099D28B /* Image.cpp */; };
+		5265B9D21E69DFE00099D28B /* Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9BD1E69DFE00099D28B /* Image.h */; };
+		5265B9D31E69DFE00099D28B /* json-forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9BF1E69DFE00099D28B /* json-forwards.h */; };
+		5265B9D41E69DFE00099D28B /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9C01E69DFE00099D28B /* json.h */; };
+		5265B9D51E69DFE00099D28B /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9C11E69DFE00099D28B /* jsoncpp.cpp */; };
+		5265B9D61E69DFE00099D28B /* ParseUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9C21E69DFE00099D28B /* ParseUtil.cpp */; };
+		5265B9D71E69DFE00099D28B /* ParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9C31E69DFE00099D28B /* ParseUtil.h */; };
+		5265B9D81E69DFE00099D28B /* pch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9C41E69DFE00099D28B /* pch.h */; };
+		5265B9D91E69DFE00099D28B /* TextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5265B9C51E69DFE00099D28B /* TextBlock.cpp */; };
+		5265B9DA1E69DFE00099D28B /* TextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5265B9C61E69DFE00099D28B /* TextBlock.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5265B93B1E68F0960099D28B /* liblibadaptivecards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibadaptivecards.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5265B9481E68F3BC0099D28B /* DjinniAdaptiveCard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniAdaptiveCard.hpp; sourceTree = "<group>"; };
+		5265B9491E68F3BC0099D28B /* DjinniBaseCardElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniBaseCardElement.hpp; sourceTree = "<group>"; };
+		5265B94A1E68F3BC0099D28B /* DjinniTextBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniTextBlock.hpp; sourceTree = "<group>"; };
+		5265B94B1E68F3BC0099D28B /* DjinniTextColor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DjinniTextColor.hpp; sourceTree = "<group>"; };
+		5265B94D1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniAdaptiveCard+Private.h"; sourceTree = "<group>"; };
+		5265B94E1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniAdaptiveCard+Private.mm"; sourceTree = "<group>"; };
+		5265B94F1E68F3BC0099D28B /* ACDjinniAdaptiveCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniAdaptiveCard.h; sourceTree = "<group>"; };
+		5265B9501E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniBaseCardElement+Private.h"; sourceTree = "<group>"; };
+		5265B9511E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniBaseCardElement+Private.mm"; sourceTree = "<group>"; };
+		5265B9521E68F3BC0099D28B /* ACDjinniBaseCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniBaseCardElement.h; sourceTree = "<group>"; };
+		5265B9531E68F3BC0099D28B /* ACDjinniTextBlock+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniTextBlock+Private.h"; sourceTree = "<group>"; };
+		5265B9541E68F3BC0099D28B /* ACDjinniTextBlock+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ACDjinniTextBlock+Private.mm"; sourceTree = "<group>"; };
+		5265B9551E68F3BC0099D28B /* ACDjinniTextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniTextBlock.h; sourceTree = "<group>"; };
+		5265B9561E68F3BC0099D28B /* ACDjinniTextColor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACDjinniTextColor+Private.h"; sourceTree = "<group>"; };
+		5265B9571E68F3BC0099D28B /* ACDjinniTextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDjinniTextColor.h; sourceTree = "<group>"; };
+		5265B9681E68F3D80099D28B /* TextBlockImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextBlockImpl.cpp; sourceTree = "<group>"; };
+		5265B9691E68F3D80099D28B /* TextBlockImpl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextBlockImpl.hpp; sourceTree = "<group>"; };
+		5265B9B21E69DFE00099D28B /* AdaptiveCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdaptiveCard.cpp; sourceTree = "<group>"; };
+		5265B9B31E69DFE00099D28B /* AdaptiveCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveCard.h; sourceTree = "<group>"; };
+		5265B9B41E69DFE00099D28B /* AdaptiveCardParseException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdaptiveCardParseException.cpp; sourceTree = "<group>"; };
+		5265B9B51E69DFE00099D28B /* AdaptiveCardParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveCardParseException.h; sourceTree = "<group>"; };
+		5265B9B61E69DFE00099D28B /* BaseCardElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseCardElement.cpp; sourceTree = "<group>"; };
+		5265B9B71E69DFE00099D28B /* BaseCardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCardElement.h; sourceTree = "<group>"; };
+		5265B9B81E69DFE00099D28B /* Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Container.cpp; sourceTree = "<group>"; };
+		5265B9B91E69DFE00099D28B /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
+		5265B9BA1E69DFE00099D28B /* Enums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enums.cpp; sourceTree = "<group>"; };
+		5265B9BB1E69DFE00099D28B /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		5265B9BC1E69DFE00099D28B /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		5265B9BD1E69DFE00099D28B /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		5265B9BF1E69DFE00099D28B /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
+		5265B9C01E69DFE00099D28B /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		5265B9C11E69DFE00099D28B /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		5265B9C21E69DFE00099D28B /* ParseUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParseUtil.cpp; sourceTree = "<group>"; };
+		5265B9C31E69DFE00099D28B /* ParseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseUtil.h; sourceTree = "<group>"; };
+		5265B9C41E69DFE00099D28B /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
+		5265B9C51E69DFE00099D28B /* TextBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextBlock.cpp; sourceTree = "<group>"; };
+		5265B9C61E69DFE00099D28B /* TextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBlock.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5265B9381E68F0960099D28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5265B9321E68F0960099D28B = {
+			isa = PBXGroup;
+			children = (
+				5265B9B11E69DFE00099D28B /* ObjectModel */,
+				5265B9671E68F3D80099D28B /* src */,
+				5265B9471E68F3BC0099D28B /* cpp */,
+				5265B94C1E68F3BC0099D28B /* objc */,
+				5265B93C1E68F0960099D28B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5265B93C1E68F0960099D28B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5265B93B1E68F0960099D28B /* liblibadaptivecards.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5265B9471E68F3BC0099D28B /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				5265B9481E68F3BC0099D28B /* DjinniAdaptiveCard.hpp */,
+				5265B9491E68F3BC0099D28B /* DjinniBaseCardElement.hpp */,
+				5265B94A1E68F3BC0099D28B /* DjinniTextBlock.hpp */,
+				5265B94B1E68F3BC0099D28B /* DjinniTextColor.hpp */,
+			);
+			name = cpp;
+			path = "../generated-src/cpp";
+			sourceTree = "<group>";
+		};
+		5265B94C1E68F3BC0099D28B /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				5265B94D1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.h */,
+				5265B94E1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.mm */,
+				5265B94F1E68F3BC0099D28B /* ACDjinniAdaptiveCard.h */,
+				5265B9501E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.h */,
+				5265B9511E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.mm */,
+				5265B9521E68F3BC0099D28B /* ACDjinniBaseCardElement.h */,
+				5265B9531E68F3BC0099D28B /* ACDjinniTextBlock+Private.h */,
+				5265B9541E68F3BC0099D28B /* ACDjinniTextBlock+Private.mm */,
+				5265B9551E68F3BC0099D28B /* ACDjinniTextBlock.h */,
+				5265B9561E68F3BC0099D28B /* ACDjinniTextColor+Private.h */,
+				5265B9571E68F3BC0099D28B /* ACDjinniTextColor.h */,
+			);
+			name = objc;
+			path = "../generated-src/objc";
+			sourceTree = "<group>";
+		};
+		5265B9671E68F3D80099D28B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5265B9681E68F3D80099D28B /* TextBlockImpl.cpp */,
+				5265B9691E68F3D80099D28B /* TextBlockImpl.hpp */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		5265B9B11E69DFE00099D28B /* ObjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				5265B9B21E69DFE00099D28B /* AdaptiveCard.cpp */,
+				5265B9B31E69DFE00099D28B /* AdaptiveCard.h */,
+				5265B9B41E69DFE00099D28B /* AdaptiveCardParseException.cpp */,
+				5265B9B51E69DFE00099D28B /* AdaptiveCardParseException.h */,
+				5265B9B61E69DFE00099D28B /* BaseCardElement.cpp */,
+				5265B9B71E69DFE00099D28B /* BaseCardElement.h */,
+				5265B9B81E69DFE00099D28B /* Container.cpp */,
+				5265B9B91E69DFE00099D28B /* Container.h */,
+				5265B9BA1E69DFE00099D28B /* Enums.cpp */,
+				5265B9BB1E69DFE00099D28B /* Enums.h */,
+				5265B9BC1E69DFE00099D28B /* Image.cpp */,
+				5265B9BD1E69DFE00099D28B /* Image.h */,
+				5265B9BE1E69DFE00099D28B /* json */,
+				5265B9C11E69DFE00099D28B /* jsoncpp.cpp */,
+				5265B9C21E69DFE00099D28B /* ParseUtil.cpp */,
+				5265B9C31E69DFE00099D28B /* ParseUtil.h */,
+				5265B9C41E69DFE00099D28B /* pch.h */,
+				5265B9C51E69DFE00099D28B /* TextBlock.cpp */,
+				5265B9C61E69DFE00099D28B /* TextBlock.h */,
+			);
+			name = ObjectModel;
+			path = ../../Shared/ObjectModel;
+			sourceTree = "<group>";
+		};
+		5265B9BE1E69DFE00099D28B /* json */ = {
+			isa = PBXGroup;
+			children = (
+				5265B9BF1E69DFE00099D28B /* json-forwards.h */,
+				5265B9C01E69DFE00099D28B /* json.h */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5265B9391E68F0960099D28B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5265B9D31E69DFE00099D28B /* json-forwards.h in Headers */,
+				5265B9DA1E69DFE00099D28B /* TextBlock.h in Headers */,
+				5265B9C81E69DFE00099D28B /* AdaptiveCard.h in Headers */,
+				5265B9621E68F3BC0099D28B /* ACDjinniTextBlock+Private.h in Headers */,
+				5265B9591E68F3BC0099D28B /* DjinniBaseCardElement.hpp in Headers */,
+				5265B95B1E68F3BC0099D28B /* DjinniTextColor.hpp in Headers */,
+				5265B95C1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.h in Headers */,
+				5265B95F1E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.h in Headers */,
+				5265B9D81E69DFE00099D28B /* pch.h in Headers */,
+				5265B9D21E69DFE00099D28B /* Image.h in Headers */,
+				5265B9CC1E69DFE00099D28B /* BaseCardElement.h in Headers */,
+				5265B9D41E69DFE00099D28B /* json.h in Headers */,
+				5265B9651E68F3BC0099D28B /* ACDjinniTextColor+Private.h in Headers */,
+				5265B96B1E68F3D80099D28B /* TextBlockImpl.hpp in Headers */,
+				5265B9CE1E69DFE00099D28B /* Container.h in Headers */,
+				5265B95A1E68F3BC0099D28B /* DjinniTextBlock.hpp in Headers */,
+				5265B95E1E68F3BC0099D28B /* ACDjinniAdaptiveCard.h in Headers */,
+				5265B9CA1E69DFE00099D28B /* AdaptiveCardParseException.h in Headers */,
+				5265B9641E68F3BC0099D28B /* ACDjinniTextBlock.h in Headers */,
+				5265B9661E68F3BC0099D28B /* ACDjinniTextColor.h in Headers */,
+				5265B9D71E69DFE00099D28B /* ParseUtil.h in Headers */,
+				5265B9D01E69DFE00099D28B /* Enums.h in Headers */,
+				5265B9611E68F3BC0099D28B /* ACDjinniBaseCardElement.h in Headers */,
+				5265B9581E68F3BC0099D28B /* DjinniAdaptiveCard.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5265B93A1E68F0960099D28B /* libadaptivecards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5265B9441E68F0960099D28B /* Build configuration list for PBXNativeTarget "libadaptivecards" */;
+			buildPhases = (
+				5265B9371E68F0960099D28B /* Sources */,
+				5265B9381E68F0960099D28B /* Frameworks */,
+				5265B9391E68F0960099D28B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libadaptivecards;
+			productName = libadaptivecards;
+			productReference = 5265B93B1E68F0960099D28B /* liblibadaptivecards.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5265B9331E68F0960099D28B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					5265B93A1E68F0960099D28B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5265B9361E68F0960099D28B /* Build configuration list for PBXProject "libadaptivecards" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5265B9321E68F0960099D28B;
+			productRefGroup = 5265B93C1E68F0960099D28B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5265B93A1E68F0960099D28B /* libadaptivecards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5265B9371E68F0960099D28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5265B96A1E68F3D80099D28B /* TextBlockImpl.cpp in Sources */,
+				5265B9CD1E69DFE00099D28B /* Container.cpp in Sources */,
+				5265B9CB1E69DFE00099D28B /* BaseCardElement.cpp in Sources */,
+				5265B9D61E69DFE00099D28B /* ParseUtil.cpp in Sources */,
+				5265B9CF1E69DFE00099D28B /* Enums.cpp in Sources */,
+				5265B9C91E69DFE00099D28B /* AdaptiveCardParseException.cpp in Sources */,
+				5265B9C71E69DFE00099D28B /* AdaptiveCard.cpp in Sources */,
+				5265B9631E68F3BC0099D28B /* ACDjinniTextBlock+Private.mm in Sources */,
+				5265B9D51E69DFE00099D28B /* jsoncpp.cpp in Sources */,
+				5265B95D1E68F3BC0099D28B /* ACDjinniAdaptiveCard+Private.mm in Sources */,
+				5265B9601E68F3BC0099D28B /* ACDjinniBaseCardElement+Private.mm in Sources */,
+				5265B9D91E69DFE00099D28B /* TextBlock.cpp in Sources */,
+				5265B9D11E69DFE00099D28B /* Image.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5265B9421E68F0960099D28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/riarenas/AdaptiveCards/Shared/ObjectModel/**",
+					"/Users/riarenas/AdaptiveCards/ios/**",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos10.2;
+			};
+			name = Debug;
+		};
+		5265B9431E68F0960099D28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/riarenas/AdaptiveCards/Shared/ObjectModel/**",
+					"/Users/riarenas/AdaptiveCards/ios/**",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos10.2;
+			};
+			name = Release;
+		};
+		5265B9451E68F0960099D28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"../../**",
+					../../../Shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5265B9461E68F0960099D28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"../../**",
+					../../../Shared,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5265B9361E68F0960099D28B /* Build configuration list for PBXProject "libadaptivecards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265B9421E68F0960099D28B /* Debug */,
+				5265B9431E68F0960099D28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5265B9441E68F0960099D28B /* Build configuration list for PBXNativeTarget "libadaptivecards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265B9451E68F0960099D28B /* Debug */,
+				5265B9461E68F0960099D28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5265B9331E68F0960099D28B /* Project object */;
+}

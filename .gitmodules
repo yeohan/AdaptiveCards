@@ -1,0 +1,6 @@
+[submodule "ios/deps/djinni"]
+	path = ios/deps/djinni
+	url = https://github.com/dropbox/djinni.git
+[submodule "ios/deps/gyp"]
+	path = ios/deps/gyp
+	url = https://chromium.googlesource.com/external/gyp.git
