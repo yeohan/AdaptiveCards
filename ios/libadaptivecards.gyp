@@ -10,7 +10,8 @@
 
             },
             "sources": [
-              "<!@(python deps/djinni/example/glob.py generated-src/objc  '*.cpp' '*.mm' '*.m' '*.m')”,
+		
+              "<!@(python deps/djinni/example/glob.py generated-src/objc  '*.cpp' '*.mm' '*.m' ‘*.m’)",
               "<!@(python deps/djinni/example/glob.py generated-src/cpp   '*.cpp' '*.m')",
               "<!@(python deps/djinni/example/glob.py src '*.cpp')",
             ],
