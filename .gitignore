@@ -268,3 +268,7 @@ product.pbxproj
 
 #Generated header from MIDL
 **/UWP/Renderer/AdaptiveCards.XamlCardRenderer.h
+
+#iOS
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj

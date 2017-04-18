@@ -2,7 +2,7 @@
 
 #include "pch.h"
 #include "Enums.h"
-#include "json\json.h"
+#include "json.h"
 
 namespace AdaptiveCards
 {
