@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import AdaptiveCards
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textInput: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func setTextButton() {
+        let textBlock : TextBlock = TextBlock()
+        
+        textBlock.text = "blah"
+        
+        textLabel.text = textBlock.text
+        
     }
-
 
 }
 

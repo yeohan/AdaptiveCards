@@ -121,7 +121,7 @@ enum class CardElementType
 enum class SeparationStyle {
     Default = 0,
     None,
-    Strong,
+    Strong
 };
 
 const std::string AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey type);

@@ -45,6 +45,9 @@
 		5B003CEE1EA1835900ECB315 /* TextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CC71EA182D600ECB315 /* TextBlock.h */; };
 		5B003CF11EA1838F00ECB315 /* json-forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CEF1EA1838F00ECB315 /* json-forwards.h */; };
 		5B003CF21EA1838F00ECB315 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CF01EA1838F00ECB315 /* json.h */; };
+		5B37BF4D1EA725C400FE9E51 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B37BF4C1EA725C400FE9E51 /* Enums.swift */; };
+		5B99457E1EAEAC880036B2EF /* BaseCardElementBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B99457C1EAEAC880036B2EF /* BaseCardElementBridge.cpp */; };
+		5B99457F1EAEAC880036B2EF /* BaseCardElementBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B99457D1EAEAC880036B2EF /* BaseCardElementBridge.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +88,6 @@
 		5B003C9A1EA14EAD00ECB315 /* TextBlockBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextBlockBridge.cpp; sourceTree = "<group>"; };
 		5B003C9E1EA1539F00ECB315 /* TextBlockBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextBlockBridge.h; sourceTree = "<group>"; };
 		5B003C9F1EA1544500ECB315 /* TextBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
-		5B003CA81EA181FE00ECB315 /* ObjectModel */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ObjectModel; path = ../../../../../Documents/AdaptiveCards/Shared/ObjectModel; sourceTree = "<group>"; };
 		5B003CAD1EA182D600ECB315 /* AdaptiveCard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCard.cpp; path = ../../shared/cpp/ObjectModel/AdaptiveCard.cpp; sourceTree = "<group>"; };
 		5B003CAE1EA182D600ECB315 /* AdaptiveCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdaptiveCard.h; path = ../../shared/cpp/ObjectModel/AdaptiveCard.h; sourceTree = "<group>"; };
 		5B003CAF1EA182D600ECB315 /* AdaptiveCardParseException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCardParseException.cpp; path = ../../shared/cpp/ObjectModel/AdaptiveCardParseException.cpp; sourceTree = "<group>"; };
@@ -115,6 +117,9 @@
 		5B003CC71EA182D600ECB315 /* TextBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextBlock.h; path = ../../shared/cpp/ObjectModel/TextBlock.h; sourceTree = "<group>"; };
 		5B003CEF1EA1838F00ECB315 /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "../../shared/cpp/ObjectModel/json/json-forwards.h"; sourceTree = "<group>"; };
 		5B003CF01EA1838F00ECB315 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = ../../shared/cpp/ObjectModel/json/json.h; sourceTree = "<group>"; };
+		5B37BF4C1EA725C400FE9E51 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		5B99457C1EAEAC880036B2EF /* BaseCardElementBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseCardElementBridge.cpp; sourceTree = "<group>"; };
+		5B99457D1EAEAC880036B2EF /* BaseCardElementBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCardElementBridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +173,6 @@
 				5B003CC51EA182D600ECB315 /* pch.h */,
 				5B003CC61EA182D600ECB315 /* TextBlock.cpp */,
 				5B003CC71EA182D600ECB315 /* TextBlock.h */,
-				5B003CA81EA181FE00ECB315 /* ObjectModel */,
 				5B003C721EA04CFE00ECB315 /* Sample */,
 				5B003C8B1EA04D7D00ECB315 /* AdaptiveCards */,
 				5B003C711EA04CFE00ECB315 /* Products */,
@@ -204,6 +208,7 @@
 				5B003C8C1EA04D7D00ECB315 /* AdaptiveCards.h */,
 				5B003C8D1EA04D7D00ECB315 /* Info.plist */,
 				5B003C9F1EA1544500ECB315 /* TextBlock.swift */,
+				5B37BF4C1EA725C400FE9E51 /* Enums.swift */,
 			);
 			path = AdaptiveCards;
 			sourceTree = "<group>";
@@ -211,6 +216,8 @@
 		5B003C991EA14E5600ECB315 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
+				5B99457C1EAEAC880036B2EF /* BaseCardElementBridge.cpp */,
+				5B99457D1EAEAC880036B2EF /* BaseCardElementBridge.h */,
 				5B003C9A1EA14EAD00ECB315 /* TextBlockBridge.cpp */,
 				5B003C9E1EA1539F00ECB315 /* TextBlockBridge.h */,
 			);
@@ -238,6 +245,7 @@
 				5B003CE71EA1833600ECB315 /* ParseUtil.h in Headers */,
 				5B003CE61EA1833100ECB315 /* Column.h in Headers */,
 				5B003CE51EA1832C00ECB315 /* BaseCardElement.h in Headers */,
+				5B99457F1EAEAC880036B2EF /* BaseCardElementBridge.h in Headers */,
 				5B003CE41EA1832800ECB315 /* AdaptiveCardParseException.h in Headers */,
 				5B003CE31EA1832300ECB315 /* AdaptiveCard.h in Headers */,
 			);
@@ -360,6 +368,7 @@
 				5B003CC81EA182D600ECB315 /* AdaptiveCard.cpp in Sources */,
 				5B003CCA1EA182D600ECB315 /* AdaptiveCardParseException.cpp in Sources */,
 				5B003CCC1EA182D600ECB315 /* BaseCardElement.cpp in Sources */,
+				5B99457E1EAEAC880036B2EF /* BaseCardElementBridge.cpp in Sources */,
 				5B003CCE1EA182D600ECB315 /* Column.cpp in Sources */,
 				5B003CD01EA182D600ECB315 /* ColumnSet.cpp in Sources */,
 				5B003CD21EA182D600ECB315 /* Container.cpp in Sources */,
@@ -371,6 +380,7 @@
 				5B003CDE1EA182D600ECB315 /* ParseUtil.cpp in Sources */,
 				5B003CE11EA182D600ECB315 /* TextBlock.cpp in Sources */,
 				5B003CA01EA1544500ECB315 /* TextBlock.swift in Sources */,
+				5B37BF4D1EA725C400FE9E51 /* Enums.swift in Sources */,
 				5B003C9B1EA14EAD00ECB315 /* TextBlockBridge.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,6 +610,7 @@
 				5B003C841EA04CFE00ECB315 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B003C931EA04D7D00ECB315 /* Build configuration list for PBXNativeTarget "AdaptiveCards" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +619,7 @@
 				5B003C951EA04D7D00ECB315 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
