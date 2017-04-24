@@ -163,7 +163,7 @@ enum class ChoiceSetStyle
 enum class SeparationStyle {
     Default = 0,
     None,
-    Strong,
+    Strong
 };
 
 enum class ActionsOrientation {
