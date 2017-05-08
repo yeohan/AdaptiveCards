@@ -9,29 +9,89 @@
 import Foundation
 
 
-public class TextBlock {
+public class TextBlock: BaseCardElement {
     public init(){
-        self.objPtr = TextBlock_Initialize();
+        super.init(object: TextBlock_Initialize())
     }
     
     public init(seperationStyle: SeperationStyle, speak: String, text: String, textSize: TextSize, textWeight: TextWeight, textColor: TextColor, isSubtle: Bool, wrap: Bool, maxLines: Int32, horizontalAlignment: HorizontalAllignment)
     {
-        self.objPtr = TextBlock_InitializeWithArgs(seperationStyle.rawValue, speak, text, textSize.rawValue, textWeight.rawValue, textColor.rawValue, isSubtle, wrap, maxLines, horizontalAlignment.rawValue)
+        super.init(object: TextBlock_InitializeWithArgs(seperationStyle.rawValue, speak, text, textSize.rawValue, textWeight.rawValue, textColor.rawValue, isSubtle, wrap, maxLines, horizontalAlignment.rawValue))
     }
     
     public var text : String
     {
         get
         {
-            let val : String = String(cString:TextBlock_GetText(objPtr))
-            return val
+            return String(cString:TextBlock_GetText(objPtr))
         }
         
         set
         {
-            TextBlock_SetText(objPtr, "haha")
+            TextBlock_SetText(objPtr, newValue)
         }
     }
     
-    var objPtr:UnsafeRawPointer
+    public var textSize : TextSize {
+        get {
+            return TextSize(rawValue: TextBlock_GetTextSize(objPtr))!
+        }
+        set {
+            TextBlock_SetTextSize(objPtr, newValue.rawValue)
+        }
+    }
+    
+    public var textWeight : TextWeight {
+        get {
+            return TextWeight(rawValue: TextBlock_GetTextWeight(objPtr))!
+        }
+        set {
+            TextBlock_SetTextWeight(objPtr, newValue.rawValue);
+        }
+    }
+    
+    public var textColor : TextColor {
+        get {
+            return TextColor(rawValue: TextBlock_GetTextColor(objPtr))!
+        }
+        set {
+            TextBlock_SetTextColor(objPtr, newValue.rawValue);
+        }
+    }
+    
+    public var wrap : Bool {
+        get {
+            return TextBlock_GetWrap(objPtr)
+        }
+        set {
+            TextBlock_SetWrap(objPtr, newValue)
+        }
+    }
+    
+    public var isSubtle : Bool {
+        get {
+            return TextBlock_GetIsSubtle(objPtr)
+        }
+        set {
+            TextBlock_SetIsSubtle(objPtr, newValue)
+        }
+    }
+    
+    public var maxLines : Int32 {
+        get {
+            return TextBlock_GetMaxLines(objPtr)
+        }
+        set {
+            TextBlock_SetMaxLines(objPtr, newValue)
+        }
+    }
+    
+    public var horizontalAlignment : HorizontalAllignment {
+        get {
+            return HorizontalAllignment(rawValue: TextBlock_GetHorizontalAlignment(objPtr))!
+        }
+        set {
+            TextBlock_SetHorizontalAlignment(objPtr, newValue.rawValue)
+        }
+    }
 }

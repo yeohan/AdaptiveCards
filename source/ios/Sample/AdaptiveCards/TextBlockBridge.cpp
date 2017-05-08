@@ -1,8 +1,4 @@
 //
-//  TextBlockBridge.cpp
-//  Sample
-//
-//  Created by Esteban Chavez on 4/14/17.
 //  Copyright © 2017 Microsoft. All rights reserved.
 //
 
@@ -55,7 +51,9 @@ const void* TextBlock_InitializeWithArgs
 const char* TextBlock_GetText(const void* object)
 {
     AdaptiveCards::TextBlock *textBlock = (AdaptiveCards::TextBlock *) object;
-    return (textBlock->GetText()).c_str();
+    static char retval[2048];
+    strcpy(retval, textBlock->GetText().c_str());
+    return retval;
 }
     
 void TextBlock_SetText(const void* object, const char* text)

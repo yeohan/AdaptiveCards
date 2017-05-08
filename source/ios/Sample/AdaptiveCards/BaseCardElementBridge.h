@@ -5,14 +5,9 @@
 #ifndef BaseCardElementBridge_h
 #define BaseCardElementBridge_h
 
-#include <stdio.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
-//    const void *BaseCardElement_Initialize(int cardElementType);
-//    const void *BaseCardElement_InitializeWithArgs(int cardElementType, int seperationStyle, const char* speak);
     
     int BaseCardElement_GetSeperationStyle(const void* object);
     void BaseCardElement_SetSeperationStyle(const void* object, int seperationStyle);
@@ -26,4 +21,4 @@ extern "C" {
 }
 #endif
 
-#endif /* BaseCardElementBridge_hpp */
+#endif /* BaseCardElementBridge_h */

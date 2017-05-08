@@ -8,6 +8,51 @@
 
 import Foundation
 
+public enum CardElementType : Int32
+{
+    case Unsupported = 0,
+    AdaptiveCard,
+    TextBlock,
+    Image,
+    Container,
+    Column,
+    ColumnSet,
+    FactSet,
+    Fact,
+    ImageGallery,
+    ActionGroup
+}
+
+public enum AdaptiveCardSchemaKey : Int32
+{
+    case SchemaType = 0,
+    Body,
+    Version,
+    MinVersion,
+    FallbackText,
+    BaseCardElement,
+    Separation,
+    Speak,
+    Url,
+    ImageStyle,
+    ImageSize,
+    AltText,
+    HorizontalAlignment,
+    Text,
+    TextSize,
+    TextWeight,
+    TextColor,
+    IsSubtle,
+    Wrap,
+    MaxLines,
+    Items,
+    Columns,
+    Size,
+    Facts,
+    Title,
+    Value
+};
+
 public enum TextSize : Int32
 {
     case Small = 0,
