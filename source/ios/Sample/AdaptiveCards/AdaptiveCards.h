@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char AdaptiveCardsVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <AdaptiveCards/PublicHeader.h>
 
 #import "TextBlockBridge.h"
+#import "BaseCardElementBridge.h"
+#import "AdaptiveCardBridge.h"

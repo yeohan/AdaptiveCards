@@ -1,8 +1,4 @@
 //
-//  TextBlockBridge.h
-//  Sample
-//
-//  Created by Esteban Chavez on 4/14/17.
 //  Copyright © 2017 Microsoft. All rights reserved.
 //
 

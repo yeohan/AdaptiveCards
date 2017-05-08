@@ -19,9 +19,11 @@ class ViewController: UIViewController {
     @IBAction func setTextButton() {
         let textBlock : TextBlock = TextBlock()
         
-        textBlock.text = "blah"
+        textBlock.text = textInput.text!
         
-        textLabel.text = textBlock.text
+        var string = textBlock.text;
+        
+        textLabel.text = string
         
     }
 

@@ -24,7 +24,8 @@ extern "C" {
     const char* BaseCardElement_GetSpeak(const void* object)
     {
         AdaptiveCards::BaseCardElement *element = (AdaptiveCards::BaseCardElement *) object;
-        return element->GetSpeak().c_str();
+        const char* retval = element->GetSpeak().c_str();
+        return retval;
     }
     
     void BaseCardElement_SetSpeak(const void* object, const char* speak)
