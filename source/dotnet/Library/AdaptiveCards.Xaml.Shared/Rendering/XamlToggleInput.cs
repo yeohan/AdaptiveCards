@@ -15,7 +15,7 @@ namespace AdaptiveCards.Rendering
         public static FrameworkElement Render(TypedElement element, RenderContext context)
         {
             ToggleInput input = (ToggleInput)element;
-            if (context.Options.SupportsInteractivity)
+            if (context.Config.SupportsInteractivity)
             {
                 var uiToggle = new CheckBox();
 #if WPF
@@ -23,7 +23,7 @@ namespace AdaptiveCards.Rendering
                 uiToggle.Content = input.Title;
 #endif
                 uiToggle.SetState(input.Value == (input.ValueOn ?? "true"));
-                uiToggle.Style = context.GetStyle($"Adaptive.input.Toggle");
+                uiToggle.Style = context.GetStyle($"Adaptive.Input.Toggle");
                 uiToggle.SetContext(input);
                 context.InputBindings.Add(input.Id, () =>
                 {
