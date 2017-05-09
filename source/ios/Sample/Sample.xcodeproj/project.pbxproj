@@ -45,6 +45,23 @@
 		5B003CEE1EA1835900ECB315 /* TextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CC71EA182D600ECB315 /* TextBlock.h */; };
 		5B003CF11EA1838F00ECB315 /* json-forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CEF1EA1838F00ECB315 /* json-forwards.h */; };
 		5B003CF21EA1838F00ECB315 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B003CF01EA1838F00ECB315 /* json.h */; };
+		5B3687991EC2476A0085C5E2 /* HostOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687901EC2476A0085C5E2 /* HostOptions.h */; };
+		5B36879A1EC2476A0085C5E2 /* ImageSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687911EC2476A0085C5E2 /* ImageSet.h */; };
+		5B36879B1EC2476A0085C5E2 /* InputChoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687921EC2476A0085C5E2 /* InputChoice.h */; };
+		5B36879C1EC2476A0085C5E2 /* InputChoiceSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687931EC2476A0085C5E2 /* InputChoiceSet.h */; };
+		5B36879D1EC2476A0085C5E2 /* InputDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687941EC2476A0085C5E2 /* InputDate.h */; };
+		5B36879E1EC2476A0085C5E2 /* InputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687951EC2476A0085C5E2 /* InputNumber.h */; };
+		5B36879F1EC2476A0085C5E2 /* InputText.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687961EC2476A0085C5E2 /* InputText.h */; };
+		5B3687A01EC2476A0085C5E2 /* InputTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687971EC2476A0085C5E2 /* InputTime.h */; };
+		5B3687A11EC2476A0085C5E2 /* InputToggle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3687981EC2476A0085C5E2 /* InputToggle.h */; };
+		5B3687AA1EC247BD0085C5E2 /* ImageSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A21EC247BD0085C5E2 /* ImageSet.cpp */; };
+		5B3687AB1EC247BD0085C5E2 /* InputChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A31EC247BD0085C5E2 /* InputChoice.cpp */; };
+		5B3687AC1EC247BD0085C5E2 /* InputChoiceSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A41EC247BD0085C5E2 /* InputChoiceSet.cpp */; };
+		5B3687AD1EC247BD0085C5E2 /* InputDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A51EC247BD0085C5E2 /* InputDate.cpp */; };
+		5B3687AE1EC247BD0085C5E2 /* InputNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A61EC247BD0085C5E2 /* InputNumber.cpp */; };
+		5B3687AF1EC247BD0085C5E2 /* InputText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A71EC247BD0085C5E2 /* InputText.cpp */; };
+		5B3687B01EC247BD0085C5E2 /* InputTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A81EC247BD0085C5E2 /* InputTime.cpp */; };
+		5B3687B11EC247BD0085C5E2 /* InputToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3687A91EC247BD0085C5E2 /* InputToggle.cpp */; };
 		5B37BF4D1EA725C400FE9E51 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B37BF4C1EA725C400FE9E51 /* Enums.swift */; };
 		5B6E596E1EB1485C00674693 /* BaseCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E596D1EB1485C00674693 /* BaseCardElement.swift */; };
 		5B6E59701EB2D76300674693 /* AdaptiveCardBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6E596F1EB2D76300674693 /* AdaptiveCardBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,6 +138,23 @@
 		5B003CC71EA182D600ECB315 /* TextBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextBlock.h; path = ../../shared/cpp/ObjectModel/TextBlock.h; sourceTree = "<group>"; };
 		5B003CEF1EA1838F00ECB315 /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "../../shared/cpp/ObjectModel/json/json-forwards.h"; sourceTree = "<group>"; };
 		5B003CF01EA1838F00ECB315 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = ../../shared/cpp/ObjectModel/json/json.h; sourceTree = "<group>"; };
+		5B3687901EC2476A0085C5E2 /* HostOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HostOptions.h; path = ../../shared/cpp/ObjectModel/HostOptions.h; sourceTree = "<group>"; };
+		5B3687911EC2476A0085C5E2 /* ImageSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageSet.h; path = ../../shared/cpp/ObjectModel/ImageSet.h; sourceTree = "<group>"; };
+		5B3687921EC2476A0085C5E2 /* InputChoice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputChoice.h; path = ../../shared/cpp/ObjectModel/InputChoice.h; sourceTree = "<group>"; };
+		5B3687931EC2476A0085C5E2 /* InputChoiceSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputChoiceSet.h; path = ../../shared/cpp/ObjectModel/InputChoiceSet.h; sourceTree = "<group>"; };
+		5B3687941EC2476A0085C5E2 /* InputDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputDate.h; path = ../../shared/cpp/ObjectModel/InputDate.h; sourceTree = "<group>"; };
+		5B3687951EC2476A0085C5E2 /* InputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputNumber.h; path = ../../shared/cpp/ObjectModel/InputNumber.h; sourceTree = "<group>"; };
+		5B3687961EC2476A0085C5E2 /* InputText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputText.h; path = ../../shared/cpp/ObjectModel/InputText.h; sourceTree = "<group>"; };
+		5B3687971EC2476A0085C5E2 /* InputTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputTime.h; path = ../../shared/cpp/ObjectModel/InputTime.h; sourceTree = "<group>"; };
+		5B3687981EC2476A0085C5E2 /* InputToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputToggle.h; path = ../../shared/cpp/ObjectModel/InputToggle.h; sourceTree = "<group>"; };
+		5B3687A21EC247BD0085C5E2 /* ImageSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ImageSet.cpp; path = ../../shared/cpp/ObjectModel/ImageSet.cpp; sourceTree = "<group>"; };
+		5B3687A31EC247BD0085C5E2 /* InputChoice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputChoice.cpp; path = ../../shared/cpp/ObjectModel/InputChoice.cpp; sourceTree = "<group>"; };
+		5B3687A41EC247BD0085C5E2 /* InputChoiceSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputChoiceSet.cpp; path = ../../shared/cpp/ObjectModel/InputChoiceSet.cpp; sourceTree = "<group>"; };
+		5B3687A51EC247BD0085C5E2 /* InputDate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputDate.cpp; path = ../../shared/cpp/ObjectModel/InputDate.cpp; sourceTree = "<group>"; };
+		5B3687A61EC247BD0085C5E2 /* InputNumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputNumber.cpp; path = ../../shared/cpp/ObjectModel/InputNumber.cpp; sourceTree = "<group>"; };
+		5B3687A71EC247BD0085C5E2 /* InputText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputText.cpp; path = ../../shared/cpp/ObjectModel/InputText.cpp; sourceTree = "<group>"; };
+		5B3687A81EC247BD0085C5E2 /* InputTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputTime.cpp; path = ../../shared/cpp/ObjectModel/InputTime.cpp; sourceTree = "<group>"; };
+		5B3687A91EC247BD0085C5E2 /* InputToggle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputToggle.cpp; path = ../../shared/cpp/ObjectModel/InputToggle.cpp; sourceTree = "<group>"; };
 		5B37BF4C1EA725C400FE9E51 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5B6E596D1EB1485C00674693 /* BaseCardElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCardElement.swift; sourceTree = "<group>"; };
 		5B6E596F1EB2D76300674693 /* AdaptiveCardBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveCardBridge.h; sourceTree = "<group>"; };
@@ -152,6 +186,23 @@
 		5B003C671EA04CFE00ECB315 = {
 			isa = PBXGroup;
 			children = (
+				5B3687A21EC247BD0085C5E2 /* ImageSet.cpp */,
+				5B3687A31EC247BD0085C5E2 /* InputChoice.cpp */,
+				5B3687A41EC247BD0085C5E2 /* InputChoiceSet.cpp */,
+				5B3687A51EC247BD0085C5E2 /* InputDate.cpp */,
+				5B3687A61EC247BD0085C5E2 /* InputNumber.cpp */,
+				5B3687A71EC247BD0085C5E2 /* InputText.cpp */,
+				5B3687A81EC247BD0085C5E2 /* InputTime.cpp */,
+				5B3687A91EC247BD0085C5E2 /* InputToggle.cpp */,
+				5B3687901EC2476A0085C5E2 /* HostOptions.h */,
+				5B3687911EC2476A0085C5E2 /* ImageSet.h */,
+				5B3687921EC2476A0085C5E2 /* InputChoice.h */,
+				5B3687931EC2476A0085C5E2 /* InputChoiceSet.h */,
+				5B3687941EC2476A0085C5E2 /* InputDate.h */,
+				5B3687951EC2476A0085C5E2 /* InputNumber.h */,
+				5B3687961EC2476A0085C5E2 /* InputText.h */,
+				5B3687971EC2476A0085C5E2 /* InputTime.h */,
+				5B3687981EC2476A0085C5E2 /* InputToggle.h */,
 				5B003CEF1EA1838F00ECB315 /* json-forwards.h */,
 				5B003CF01EA1838F00ECB315 /* json.h */,
 				5B003CAD1EA182D600ECB315 /* AdaptiveCard.cpp */,
@@ -247,6 +298,15 @@
 				5B003CA11EA155DD00ECB315 /* TextBlockBridge.h in Headers */,
 				5B6E59701EB2D76300674693 /* AdaptiveCardBridge.h in Headers */,
 				5B99457F1EAEAC880036B2EF /* BaseCardElementBridge.h in Headers */,
+				5B3687991EC2476A0085C5E2 /* HostOptions.h in Headers */,
+				5B36879A1EC2476A0085C5E2 /* ImageSet.h in Headers */,
+				5B36879B1EC2476A0085C5E2 /* InputChoice.h in Headers */,
+				5B36879C1EC2476A0085C5E2 /* InputChoiceSet.h in Headers */,
+				5B36879D1EC2476A0085C5E2 /* InputDate.h in Headers */,
+				5B36879E1EC2476A0085C5E2 /* InputNumber.h in Headers */,
+				5B36879F1EC2476A0085C5E2 /* InputText.h in Headers */,
+				5B3687A01EC2476A0085C5E2 /* InputTime.h in Headers */,
+				5B3687A11EC2476A0085C5E2 /* InputToggle.h in Headers */,
 				5B003CF11EA1838F00ECB315 /* json-forwards.h in Headers */,
 				5B003CF21EA1838F00ECB315 /* json.h in Headers */,
 				5B003CEE1EA1835900ECB315 /* TextBlock.h in Headers */,
@@ -378,6 +438,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3687AA1EC247BD0085C5E2 /* ImageSet.cpp in Sources */,
+				5B3687AB1EC247BD0085C5E2 /* InputChoice.cpp in Sources */,
+				5B3687AC1EC247BD0085C5E2 /* InputChoiceSet.cpp in Sources */,
+				5B3687AD1EC247BD0085C5E2 /* InputDate.cpp in Sources */,
+				5B3687AE1EC247BD0085C5E2 /* InputNumber.cpp in Sources */,
+				5B3687AF1EC247BD0085C5E2 /* InputText.cpp in Sources */,
+				5B3687B01EC247BD0085C5E2 /* InputTime.cpp in Sources */,
+				5B3687B11EC247BD0085C5E2 /* InputToggle.cpp in Sources */,
 				5B003CC81EA182D600ECB315 /* AdaptiveCard.cpp in Sources */,
 				5B6E59721EB2DB6500674693 /* AdaptiveCardBridge.cpp in Sources */,
 				5B003CCA1EA182D600ECB315 /* AdaptiveCardParseException.cpp in Sources */,

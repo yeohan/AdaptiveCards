@@ -10,7 +10,7 @@ extern "C" {
 #endif
     
     const void* AdaptiveCard_Init();
-    const void* AdaptiveCard_Init2(const char* version, const char* minVersion, const char* fallbacktText);
+    const void* AdaptiveCard_Init2(const char* version, const char* minVersion, const char* fallbacktText, const char* backgroundImage);
     
     const char* AdaptiveCard_GetVersion(const void* obj);
     void AdaptiveCard_SetVersion(const void* obj, const char* version);
