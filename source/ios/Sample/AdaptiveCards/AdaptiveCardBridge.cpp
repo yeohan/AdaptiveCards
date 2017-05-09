@@ -14,9 +14,9 @@ extern "C" {
         return (void*) card;
         
     }
-    const void* AdaptiveCard_Init2(const char* version, const char* minVersion, const char* fallbacktText)
+    const void* AdaptiveCard_Init2(const char* version, const char* minVersion, const char* fallbacktText, const char* backgroundImage)
     {
-        AdaptiveCards::AdaptiveCard* card = new AdaptiveCards::AdaptiveCard(std::string(version), std::string(minVersion), std::string(fallbacktText));
+        AdaptiveCards::AdaptiveCard* card = new AdaptiveCards::AdaptiveCard(std::string(version), std::string(minVersion), std::string(fallbacktText), std::string(backgroundImage));
         return (void*) card;
     }
     

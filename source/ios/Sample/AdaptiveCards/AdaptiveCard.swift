@@ -15,8 +15,8 @@ public class AdaptiveCard {
         objPtr = AdaptiveCard_Init()
     }
     
-    public init(version: String, minVersion: String, fallbackText: String) {
-        objPtr = AdaptiveCard_Init2(version, minVersion, fallbackText)
+    public init(version: String, minVersion: String, fallbackText: String, backgroundImageUrl: String) {
+        objPtr = AdaptiveCard_Init2(version, minVersion, fallbackText, backgroundImageUrl)
     }
     
     public init(jsonString: String) {
