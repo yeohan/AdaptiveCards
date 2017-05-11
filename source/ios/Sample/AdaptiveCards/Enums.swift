@@ -80,7 +80,7 @@ public enum TextColor : Int32
     Attention
 }
 
-public enum HorizontalAllignment : Int32
+public enum HorizontalAlignment : Int32
 {
     case Left = 0,
     Center,

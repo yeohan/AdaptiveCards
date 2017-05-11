@@ -14,7 +14,7 @@ public class TextBlock: BaseCardElement {
         super.init(object: TextBlock_Initialize())
     }
     
-    public init(seperationStyle: SeperationStyle, speak: String, text: String, textSize: TextSize, textWeight: TextWeight, textColor: TextColor, isSubtle: Bool, wrap: Bool, maxLines: Int32, horizontalAlignment: HorizontalAllignment)
+    public init(seperationStyle: SeperationStyle, speak: String, text: String, textSize: TextSize, textWeight: TextWeight, textColor: TextColor, isSubtle: Bool, wrap: Bool, maxLines: Int32, horizontalAlignment: HorizontalAlignment)
     {
         super.init(object: TextBlock_InitializeWithArgs(seperationStyle.rawValue, speak, text, textSize.rawValue, textWeight.rawValue, textColor.rawValue, isSubtle, wrap, maxLines, horizontalAlignment.rawValue))
     }
@@ -86,9 +86,9 @@ public class TextBlock: BaseCardElement {
         }
     }
     
-    public var horizontalAlignment : HorizontalAllignment {
+    public var horizontalAlignment : HorizontalAlignment {
         get {
-            return HorizontalAllignment(rawValue: TextBlock_GetHorizontalAlignment(objPtr))!
+            return HorizontalAlignment(rawValue: TextBlock_GetHorizontalAlignment(objPtr))!
         }
         set {
             TextBlock_SetHorizontalAlignment(objPtr, newValue.rawValue)
