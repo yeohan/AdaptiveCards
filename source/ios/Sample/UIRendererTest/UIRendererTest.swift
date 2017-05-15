@@ -51,7 +51,6 @@ class UIRendererTest: XCTestCase {
 
     func testBuildTextBlockExist()
     {
-        IAdaptiveCardElement*
         disp.BuildTextBlock();
     }
 }
