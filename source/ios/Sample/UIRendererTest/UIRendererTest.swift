@@ -7,11 +7,14 @@
 //
 
 import XCTest
+import AdaptiveCards
 
 class UIRendererTest: XCTestCase {
     
+    var disp: InfoDisplayBuilder!
     override func setUp() {
         super.setUp()
+        disp = InfoDisplayBuilder()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -28,12 +31,27 @@ class UIRendererTest: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            // Put the code you want to measu¨re the time of here.
         }
     }
     
-    func testAdaptiveCardsInit() {
+    func testAdaptiveTextBlockInit() {
+        let aTextBlock:TextBlock = TextBlock();
+        let aTextBlock2:TextBlock = TextBlock(seperationStyle: SeperationStyle.None, speak: "Hello", text: "World", textSize: TextSize.Normal, textWeight: TextWeight.Normal, textColor: TextColor.Dark, isSubtle: true, wrap: false, maxLines: 50, horizontalAlignment:HorizontalAlignment.Left);
+        XCTAssert(aTextBlock.isSubtle == false);
+        XCTAssert(aTextBlock2.isSubtle == true);
         
     }
     
+    func testCanInitInfoDisplayBuilder()
+    {
+        let localdisp:InfoDisplayBuilder = InfoDisplayBuilder();
+        //let aTextBlock2:TextBlock = TextBlock(seperationStyle: SeperationStyle.None, speak: "Hello", text: "World", textSize: TextSize.Normal, textWeight: TextWeight.Normal, textColor: TextColor.Dark, isSubtle: true, wrap: false, maxLines: 50, horizontalAlignment:HorizontalAlignment.Left);
+    }
+
+    func testBuildTextBlockExist()
+    {
+        IAdaptiveCardElement*
+        disp.BuildTextBlock();
+    }
 }

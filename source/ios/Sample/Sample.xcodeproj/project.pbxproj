@@ -69,7 +69,10 @@
 		5B6E59741EB7DA4400674693 /* AdaptiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E59731EB7DA4400674693 /* AdaptiveCard.swift */; };
 		5B99457E1EAEAC880036B2EF /* BaseCardElementBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B99457C1EAEAC880036B2EF /* BaseCardElementBridge.cpp */; };
 		5B99457F1EAEAC880036B2EF /* BaseCardElementBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B99457D1EAEAC880036B2EF /* BaseCardElementBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F46B86AC1EC5119900402E02 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B86AB1EC5119900402E02 /* SecondViewController.swift */; };
 		F4828A8F1EC241CB00ABFB76 /* UIRendererTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828A8E1EC241CB00ABFB76 /* UIRendererTest.swift */; };
+		F49BBEFE1EC62D7E00B7412B /* InfoDisplayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBEFD1EC62D7E00B7412B /* InfoDisplayBuilder.swift */; };
+		F49BBEFF1EC630E700B7412B /* InfoDisplayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBEFD1EC62D7E00B7412B /* InfoDisplayBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,9 +173,11 @@
 		5B6E59731EB7DA4400674693 /* AdaptiveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveCard.swift; sourceTree = "<group>"; };
 		5B99457C1EAEAC880036B2EF /* BaseCardElementBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseCardElementBridge.cpp; sourceTree = "<group>"; };
 		5B99457D1EAEAC880036B2EF /* BaseCardElementBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCardElementBridge.h; sourceTree = "<group>"; };
+		F46B86AB1EC5119900402E02 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F4828A8C1EC241CB00ABFB76 /* UIRendererTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIRendererTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4828A8E1EC241CB00ABFB76 /* UIRendererTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRendererTest.swift; sourceTree = "<group>"; };
 		F4828A901EC241CB00ABFB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49BBEFD1EC62D7E00B7412B /* InfoDisplayBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoDisplayBuilder.swift; path = Renderer/InfoDisplayBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +209,7 @@
 		5B003C671EA04CFE00ECB315 = {
 			isa = PBXGroup;
 			children = (
+				F46B86AB1EC5119900402E02 /* SecondViewController.swift */,
 				5B3687A21EC247BD0085C5E2 /* ImageSet.cpp */,
 				5B3687A31EC247BD0085C5E2 /* InputChoice.cpp */,
 				5B3687A41EC247BD0085C5E2 /* InputChoiceSet.cpp */,
@@ -250,6 +256,7 @@
 				5B003CC51EA182D600ECB315 /* pch.h */,
 				5B003CC61EA182D600ECB315 /* TextBlock.cpp */,
 				5B003CC71EA182D600ECB315 /* TextBlock.h */,
+				F49BBEFC1EC62D6000B7412B /* Renderer */,
 				5B003C721EA04CFE00ECB315 /* Sample */,
 				5B003C8B1EA04D7D00ECB315 /* AdaptiveCards */,
 				F4828A8D1EC241CB00ABFB76 /* UIRendererTest */,
@@ -314,6 +321,14 @@
 				F4828A901EC241CB00ABFB76 /* Info.plist */,
 			);
 			path = UIRendererTest;
+			sourceTree = "<group>";
+		};
+		F49BBEFC1EC62D6000B7412B /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				F49BBEFD1EC62D7E00B7412B /* InfoDisplayBuilder.swift */,
+			);
+			name = Renderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49BBEFE1EC62D7E00B7412B /* InfoDisplayBuilder.swift in Sources */,
+				F46B86AC1EC5119900402E02 /* SecondViewController.swift in Sources */,
 				5B003C761EA04CFE00ECB315 /* ViewController.swift in Sources */,
 				5B003C741EA04CFE00ECB315 /* AppDelegate.swift in Sources */,
 			);
@@ -498,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49BBEFF1EC630E700B7412B /* InfoDisplayBuilder.swift in Sources */,
 				5B3687AA1EC247BD0085C5E2 /* ImageSet.cpp in Sources */,
 				5B3687AB1EC247BD0085C5E2 /* InputChoice.cpp in Sources */,
 				5B3687AC1EC247BD0085C5E2 /* InputChoiceSet.cpp in Sources */,
@@ -811,6 +829,7 @@
 				F4828A951EC241CB00ABFB76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
