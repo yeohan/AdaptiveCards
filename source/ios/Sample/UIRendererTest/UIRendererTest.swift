@@ -7,14 +7,19 @@
 //
 
 import XCTest
+import Foundation
 import AdaptiveCards
 
 class UIRendererTest: XCTestCase {
     
     var disp: InfoDisplayBuilder!
+    var gTextBlock:TextBlock!
+    
     override func setUp() {
         super.setUp()
-        disp = InfoDisplayBuilder()
+        disp = InfoDisplayBuilder() 
+        gTextBlock = TextBlock(seperationStyle: 
+            SeperationStyle.None, speak: "Hello", text: "World", textSize: TextSize.Normal, textWeight: TextWeight.Normal, textColor: TextColor.Dark, isSubtle: true, wrap: false, maxLines: 50, horizontalAlignment:HorizontalAlignment.Left); 
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -51,6 +56,27 @@ class UIRendererTest: XCTestCase {
 
     func testBuildTextBlockExist()
     {
-        disp.BuildTextBlock();
+        let tbe: TextBlock = TextBlock();
+        disp.BuildTextBlock(block:tbe);
+    }
+    
+    func testStringCopy()
+    {
+        var testStr:String
+        testStr = gTextBlock.text
+        XCTAssertTrue(testStr == "World")
+    }
+    
+    func testBuildTextBlockReturnsTextBlockUIWithCorrectText()
+    {
+        let uiLabel: UILabel = disp.BuildTextBlock(block:gTextBlock);
+        XCTAssertTrue(uiLabel.text == gTextBlock.text);
+    }
+    
+    func testBuildTextBlockRetursWithCorrectColor()
+    {
+        var uiLabel: UILabel = disp.BuildTextBlock(block:gTextBlock);
+        //XCTAssertTrue(gTextBlocki.textColor
+        
     }
 }
