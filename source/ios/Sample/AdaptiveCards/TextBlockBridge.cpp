@@ -137,7 +137,7 @@ void TextBlock_SetMaxLines(const void* object, int maxLines)
 int TextBlock_GetHorizontalAlignment(const void* object)
 {
     AdaptiveCards::TextBlock *textBlock = (AdaptiveCards::TextBlock *) object;
-    return (static_cast<int>(textBlock->GetTextColor()));
+    return (static_cast<int>(textBlock->GetHorizontalAlignment()));
 }
     
 void TextBlock_SetHorizontalAlignment(const void* object, int horizontalAlignment)

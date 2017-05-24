@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         let mainview = self.view
         let adcviewc = InfoDisplayBuilder()
         mainview?.addSubview(adcviewc.view);
+        NSLayoutConstraint.activate([adcviewc.view.centerXAnchor.constraint(equalTo: (mainview?.centerXAnchor)!),
+                                     adcviewc.view.centerYAnchor.constraint(equalTo: (mainview?.centerYAnchor)!)])
         // Do any additional setup after loading the view, typically from a nib.
     }
     
