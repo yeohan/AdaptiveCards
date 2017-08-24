@@ -63,6 +63,9 @@ uploadArchives {
         mavenDeployer {
             repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
             pom.project {
+                setGroupId 'com.microsoft'
+                setArtifactId 'microsoft.adaptiveCards'
+                setVersion '1.0.0'
                 repositories {
                     repository {
 
