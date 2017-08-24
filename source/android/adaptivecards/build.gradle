@@ -34,6 +34,70 @@ android {
     }
 }
 
+task androidJavadocs(type: Javadoc){
+    source = android.sourceSets.main.java.sourceFiles
+}
+
+task androidJavaDocsJar(type: Jar){
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'SOURCES'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
+            pom.project {
+                repositories {
+                    repository {
+
+                        id 'microsoft-visualstudio.com-adaptivecards'
+                        url 'https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1'
+
+                        releases {
+                            enabled 'true'
+                        }
+
+                        snapshots {
+                            enabled 'true'
+                        }
+                    }
+                }
+                distributionManagement {
+                    repository {
+
+                        id 'microsoft-visualstudio.com-adaptivecards'
+                        url 'https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1'
+
+                        releases {
+                            enabled 'true'
+                        }
+
+                        snapshots {
+                            enabled 'true'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
