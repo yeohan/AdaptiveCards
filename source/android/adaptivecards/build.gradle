@@ -43,7 +43,7 @@ task androidJavaDocsJar(type: Jar){
     from androidJavadocs.destinationDir
 }
 
-task sourcesJar(type: Jar) {
+task androidSourcesJar(type: Jar) {
     classifier = 'SOURCES'
     from android.sourceSets.main.java.sourceFiles
 }
