@@ -58,47 +58,6 @@ signing {
     sign configurations.archives
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.project {
-                groupId 'com.microsoft'
-                artifactId 'microsoft.adaptiveCards'
-                version '1.0.0'
-                repositories {
-                    repository {
-                        id 'microsoft-visualstudio.com-adaptivecards'
-                        url 'https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1'
-
-                        releases {
-                            enabled 'true'
-                        }
-
-                        snapshots {
-                            enabled 'true'
-                        }
-                    }
-                }
-                distributionManagement {
-                    repository {
-
-                        id 'microsoft-visualstudio.com-adaptivecards'
-                        url 'https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1'
-
-                        releases {
-                            enabled 'true'
-                        }
-
-                        snapshots {
-                            enabled 'true'
-                        }
-                    }
-                }
-            }
-            repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
-        }
-    }
-}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
