@@ -12,6 +12,11 @@ buildscript {
     }
 }
 
+subprojects {
+uploadArchives {
+}
+}
+
 allprojects {
     repositories {
         jcenter()
