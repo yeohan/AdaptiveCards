@@ -21,10 +21,6 @@ allprojects {
 
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
 task androidJavadocs(type: Javadoc){
     source = android.sourceSets.main.java.sourceFiles
 }
@@ -56,5 +52,9 @@ uploadArchives {
             repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
         }
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
 
