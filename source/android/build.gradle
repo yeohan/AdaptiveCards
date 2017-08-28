@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 buildscript {
     repositories {
@@ -24,3 +26,37 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task androidJavadocs(type: Javadoc){
+    source = android.sourceSets.main.java.sourceFiles
+}
+
+task androidJavaDocsJar(type: Jar){
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'SOURCES'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavaDocsJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.project {
+                groupId 'com.microsoft'
+                artifactId 'microsoft.adaptiveCards'
+                version '1.0.0'
+            }
+            repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
+        }
+    }
+}
+
