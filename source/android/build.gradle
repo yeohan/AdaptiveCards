@@ -19,8 +19,6 @@ allprojects {
         jcenter()
     }
 
-    task uploadArchives {
-    }
 }
 
 task clean(type: Delete) {
