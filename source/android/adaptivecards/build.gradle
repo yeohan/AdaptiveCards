@@ -35,10 +35,10 @@ android {
         repositories {
             mavenDeployer {
                 repository(url:"https://microsoft.pkgs.visualstudio.com/_packaging/AdaptiveCards/maven/v1")
-                pom.version '1.0.0'
                 pom.packaging = 'aar'
-                pom.groupId 'com.microsoft'
                 pom {
+                    setGroupId 'com.microsoft'
+                    setVersion '1.0.0'
                     setArtifactId 'microsoft.adaptiveCards'
                 }
             }
