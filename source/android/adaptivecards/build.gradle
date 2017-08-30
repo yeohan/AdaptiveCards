@@ -33,15 +33,41 @@ android {
 uploadArchives {
         repositories.mavenDeployer {
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-                authentication(userName: "adaptivecards", password: "Sird[oshkIt5")
+                authentication(userName: project.property("username"), project.property("password"))
             }
             pom {
                 setGroupId "com.github.Microsoft"
                 setArtifactId "adaptivecards"
                 setVersion '1.0.0'
             }
+
+            pom.project {
+                setName "Android Adaptive Cards Library"
+                setDescription "Android Adaptive Cards Lib"
+                setUrl "https://github.com/Microsoft/AdaptiveCards"
+
+                scm {
+                    setUrl  "https://github.com/Microsoft/AdaptiveCards"
+                }
+
+                licenses {
+                    license {
+                        setName "MIT"
+                        setUrl "https://github.com/Microsoft/AdaptiveCards/blob/master/LICENSE"
+                        setDistribution "repo"
+                    }
+                }
+
+                developers {
+                    developer {
+                        setId microsoft
+                        setName adaptivecards
+                    }
+                }
+            }
+
         }
-}
+    }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
