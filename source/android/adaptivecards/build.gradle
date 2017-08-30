@@ -32,15 +32,21 @@ android {
 }
 
 signing {
+    Console console = System.console()
+    console.printf "sign start"
     required { gradle.taskGraph.hasTask("uploadArchives")}
     sign configurations.archives
+    console.printf "sign ended"
 }
 
 gradle.taskGraph.whenReady { taskGraph ->
     if(taskGraph.allTasks.any { it instanceof Sign }) {
+        Console console = System.console()
+        console.printf "start"
         allprojects { ext."signing.keyId" = project.property("keyId")}
         allprojects { ext."signing.secretKeyRingFile" = project.property("path")}
         allprojects { ext."signing.password" = project.property("password")}
+        console.printf "end"
     }
 }
 
