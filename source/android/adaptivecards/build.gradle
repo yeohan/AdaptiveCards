@@ -32,7 +32,7 @@ android {
 }
 
 signing {
-    required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives")}
+    required { gradle.taskGraph.hasTask("uploadArchives")}
     sign configurations.archives
 }
 
