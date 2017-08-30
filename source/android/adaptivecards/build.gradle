@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
+apply plugin: 'signing'
 
 android {
     compileSdkVersion 25
@@ -30,8 +31,22 @@ android {
     }
 }
 
+signing {
+    required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives")}
+    sign configurations.archives
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if(taskGraph.allTasks.any { it instanceof Sign }) {
+
+    allprojects { ext."signing.keyId" = project.property("keyId")}
+    allprojects { ext."signing.secretKeyRingFile" = project.property("path")}
+    allprojects { ext."signing.password" = project.property("signPass")}
+}
+
 uploadArchives {
         repositories.mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
                 authentication(userName: project.property("username"), project.property("password"))
             }
