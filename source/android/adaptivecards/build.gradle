@@ -38,10 +38,10 @@ signing {
 
 gradle.taskGraph.whenReady { taskGraph ->
     if(taskGraph.allTasks.any { it instanceof Sign }) {
-
-    allprojects { ext."signing.keyId" = project.property("keyId")}
-    allprojects { ext."signing.secretKeyRingFile" = project.property("path")}
-    allprojects { ext."signing.password" = project.property("signPass")}
+        allprojects { ext."signing.keyId" = project.property("keyId")}
+        allprojects { ext."signing.secretKeyRingFile" = project.property("path")}
+        allprojects { ext."signing.password" = project.property("password")}
+    }
 }
 
 uploadArchives {
