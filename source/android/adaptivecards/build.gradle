@@ -41,7 +41,7 @@ uploadArchives {
         repositories.mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-                authentication(userName: project.property("username"), password: project.property("password"))
+                authentication(userName: NexusUserName, password: NexusPassword)
             }
             pom {
                 setGroupId "com.github.Microsoft"
