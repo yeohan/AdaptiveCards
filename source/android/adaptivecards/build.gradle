@@ -32,47 +32,61 @@ android {
 }
 
 signing {
+    required { gradle.taskGraph.hasTask("uploadArchives")}
     sign configurations.archives
 }
 
 
 uploadArchives {
-        repositories.mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-                authentication(userName: NexusUserName, password: NexusPassword)
-            }
-            pom {
-                setGroupId "com.github.Microsoft"
-                setArtifactId "adaptivecards"
-                setVersion '1.0.0'
-            }
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                copy{
+                    from '.'
+                    into './build/outputs/aar/'
+                    include 'adaptivecards-release.aar.asc'
+                }
+                copy {
+                    from '.'
+                    into './build/poms/'
+                    include 'pom-default.xml.asc'
+                }
+                pom.artifactId ="adaptivecards"
 
-            pom.project {
-                name 'Android Adaptive Cards Library'
-                description 'Android Adaptive Cards Lib'
-                url 'https://github.com/Microsoft/AdaptiveCards'
-
-                scm {
-                    url  'https://github.com/Microsoft/AdaptiveCards'
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
+                    authentication(userName: NexusUserName, password: NexusPassword)
+                }
+                pom {
+                    setGroupId "com.github.Microsoft.AdaptiveCards"
+                    setVersion '1.0.0'
                 }
 
-                licenses {
-                    license {
-                        name 'MIT'
-                        url 'https://github.com/Microsoft/AdaptiveCards/blob/master/LICENSE'
-                        distribution 'repo'
+                pom.project {
+                    name 'Android Adaptive Cards Library'
+                    description 'Android Adaptive Cards Lib'
+                    url 'https://github.com/Microsoft/AdaptiveCards'
+
+                    scm {
+                        url  'https://github.com/Microsoft/AdaptiveCards'
+                    }
+
+                    licenses {
+                        license {
+                            name 'MIT'
+                            url 'https://github.com/Microsoft/AdaptiveCards/blob/master/LICENSE'
+                            distribution 'repo'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'microsoft'
+                            name 'adaptivecards'
+                        }
                     }
                 }
 
-                developers {
-                    developer {
-                        id 'microsoft'
-                        name 'adaptivecards'
-                    }
-                }
             }
-
         }
     }
 
