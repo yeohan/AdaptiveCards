@@ -8,6 +8,8 @@
 #include "XamlBuilder.h"
 #include "XamlHelpers.h"
 #include "AdaptiveHostConfig.h"
+#include "AdaptiveElementRendererRegistration.h"
+#include "AdaptiveTextBlockRenderer.h"
 
 using namespace concurrency;
 using namespace Microsoft::WRL;
@@ -32,6 +34,7 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     HRESULT XamlCardRenderer::RuntimeClassInitialize()
     {
         m_events.reset(new ActionEventSource);
+        RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRendererRegistration>(&m_rendererRegistration));
         return MakeAndInitialize<AdaptiveHostConfig>(&m_hostConfig);
     }
 
@@ -132,6 +135,12 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         RETURN_IF_FAILED(CreateAdaptiveCardFromJson(adaptiveJson, &adaptiveCard));
 
         return RenderCardAsXamlAsync(adaptiveCard.Get(), result);
+    }
+
+    IFACEMETHODIMP XamlCardRenderer::get_RendererRegistration(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration** result)
+    {
+        *result = m_rendererRegistration.Get();
+        return S_OK;
     }
 
     _Use_decl_annotations_

@@ -54,6 +54,30 @@ namespace AdaptiveCards
         runtimeclass AdaptiveHostConfig;
         runtimeclass AdaptiveActionEventArgs;
 
+        runtimeclass AdaptiveRendererRegistration;
+        runtimeclass AdaptiveRenderContext;
+        runtimeclass AdaptiveTextBlockRenderer;
+        runtimeclass AdaptiveCardRenderer;
+        runtimeclass AdaptiveImageRenderer;
+        runtimeclass AdaptiveImageSetRenderer;
+        runtimeclass AdaptiveContainerRenderer;
+        runtimeclass AdaptiveColumnRenderer;
+        runtimeclass AdaptiveColumnSetRenderer;
+        runtimeclass AdaptiveFactRenderer;
+        runtimeclass AdaptiveFactSetRenderer;
+        runtimeclass AdaptiveChoiceInputRenderer;
+        runtimeclass AdaptiveChoiceSetInputRenderer;
+        runtimeclass AdaptiveDateInputRenderer;
+        runtimeclass AdaptiveNumberInputRenderer;
+        runtimeclass AdaptiveTextInputRenderer;
+        runtimeclass AdaptiveTimeInputRenderer;
+        runtimeclass AdaptiveToggleInputRenderer;
+
+        interface IAdaptiveRendererRegistration;
+        interface IAdaptiveElementRenderer;
+        interface IAdaptiveActionRenderer;
+        interface IAdaptiveRenderContext;
+
         interface IAdaptiveCardElement;
         interface IAdaptiveActionElement;
         interface IAdaptiveTextBlock;
@@ -750,6 +774,191 @@ namespace AdaptiveCards
             interface IAdaptiveCardElement;
         };
 
+        [
+            uuid(f5a25e03-4d0e-4f0b-9ef6-3e6c37477e86),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveRendererRegistration)
+        ]
+        interface IAdaptiveRendererRegistration : IInspectable
+        {
+            HRESULT RegisterRenderer([in] HSTRING type, [in] IAdaptiveElementRenderer* renderer);
+            HRESULT GetRenderer([in] HSTRING type, [out, retval] IAdaptiveElementRenderer** result);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveRendererRegistration
+        {
+            [default] interface IAdaptiveRendererRegistration;
+        };
+
+        [
+            uuid(d2ad59a2-01aa-4b39-b2a7-5ce1d4028fbb),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveRenderContext)
+        ]
+        interface IAdaptiveRenderContext : IInspectable
+        {
+            [propget] HRESULT HostConfig([out, retval] AdaptiveHostConfig** value);
+            [propget] HRESULT RendererRegistration([out, retval] AdaptiveRendererRegistration** value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveRenderContext
+        {
+            [default] interface IAdaptiveRenderContext;
+        };
+
+        [
+            uuid(8682c91f-28e3-48fa-8de3-15ba4ec495ca),
+            version(NTDDI_WIN10_RS1),
+        ]
+        interface IAdaptiveElementRenderer: IInspectable
+        {
+            HRESULT Render([in] IAdaptiveCardElement* element, [in] AdaptiveRenderContext* context, [out, retval] Windows.UI.Xaml.UIElement** result);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveTextBlockRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveImageRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveImageSetRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveContainerRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveColumnRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveColumnSetRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveFactRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveFactSetRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveChoiceInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveChoiceSetInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveDateInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveNumberInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveTextInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveTimeInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveToggleInputRenderer
+        {
+            [default] interface IAdaptiveElementRenderer;
+        };
+
+
         [flags]
         [version(NTDDI_WIN10_RS1)]
         typedef [v1_enum] enum RenderOptions
@@ -778,6 +987,8 @@ namespace AdaptiveCards
 
             [eventadd] HRESULT Action([in] Windows.Foundation.TypedEventHandler<XamlCardRenderer*, AdaptiveActionEventArgs*>* pHandler, [out][retval] EventRegistrationToken* pToken);
             [eventremove] HRESULT Action([in] EventRegistrationToken token);
+
+            [propget] HRESULT RendererRegistration([out, retval] AdaptiveRendererRegistration** registration);
         };
 
         [

@@ -115,8 +115,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="lib\AdaptiveActionsConfig.h" />
+    <ClInclude Include="lib\AdaptiveElementRendererRegistration.h" />
     <ClInclude Include="lib\AdaptiveFontSizesConfig.h" />
     <ClInclude Include="lib\AdaptiveImageSizesConfig.h" />
+    <ClInclude Include="lib\AdaptiveRenderContext.h" />
     <ClInclude Include="lib\AdaptiveShowCardActionConfig.h" />
     <ClInclude Include="lib\AdaptiveSpacingDefinition.h" />
     <ClInclude Include="lib\AdaptiveCard.h" />
@@ -144,6 +146,7 @@
     <ClInclude Include="lib\AdaptiveImageSet.h" />
     <ClInclude Include="lib\AdaptiveDateInput.h" />
     <ClInclude Include="lib\AdaptiveNumberInput.h" />
+    <ClInclude Include="lib\AdaptiveTextBlockRenderer.h" />
     <ClInclude Include="lib\AdaptiveTextInput.h" />
     <ClInclude Include="lib\AdaptiveTimeInput.h" />
     <ClInclude Include="lib\AdaptiveToggleInput.h" />
@@ -173,8 +176,10 @@
     <ClInclude Include="lib\XamlBuilder.h" />
     <ClInclude Include="lib\XamlCardRendererComponent.h" />
     <ClCompile Include="lib\AdaptiveActionsConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveElementRendererRegistration.cpp" />
     <ClCompile Include="lib\AdaptiveFontSizesConfig.cpp" />
     <ClCompile Include="lib\AdaptiveImageSizesConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveRenderContext.cpp" />
     <ClCompile Include="lib\AdaptiveShowCardActionConfig.cpp" />
     <ClCompile Include="lib\AdaptiveSpacingDefinition.cpp" />
     <ClCompile Include="lib\AdaptiveCard.cpp" />
@@ -202,6 +207,7 @@
     <ClCompile Include="lib\AdaptiveImageSet.cpp" />
     <ClCompile Include="lib\AdaptiveDateInput.cpp" />
     <ClCompile Include="lib\AdaptiveNumberInput.cpp" />
+    <ClCompile Include="lib\AdaptiveTextBlockRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveTextInput.cpp" />
     <ClCompile Include="lib\AdaptiveTimeInput.cpp" />
     <ClCompile Include="lib\AdaptiveToggleInput.cpp" />

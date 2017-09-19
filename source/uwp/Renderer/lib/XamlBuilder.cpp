@@ -1889,7 +1889,7 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         THROW_IF_FAILED(datePickerAsFrameworkElement->put_HorizontalAlignment(HorizontalAlignment_Stretch));
 
         AddInputItemToVector(inputElements, adaptiveCardElement, datePicker.Get());
-            
+
         // TODO: Handle parsing dates for min/max and value
 
         // TODO: 11508861
