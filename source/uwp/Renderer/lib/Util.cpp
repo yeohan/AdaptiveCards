@@ -238,3 +238,50 @@ HRESULT GetColorFromString(std::string colorString, Color *color) noexcept try
 
     return S_OK;
 } CATCH_RETURN;
+
+static std::unordered_map<ABI::AdaptiveCards::XamlCardRenderer::ElementType, std::string, EnumHash> ElementTypeEnumToName =
+{
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::AdaptiveCard, "AdaptiveCard" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::Column, "Column" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::ColumnSet, "ColumnSet" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::Container, "Container" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::Fact, "Fact" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::FactSet, "FactSet" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::Image, "Image" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::ImageSet, "ImageSet" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::ChoiceSetInput, "Input.ChoiceSet" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::DateInput, "Input.Date" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::NumberInput, "Input.Number" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::TextInput, "Input.Text" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::TimeInput, "Input.Time" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::ToggleInput, "Input.Toggle" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ElementType::TextBlock, "TextBlock" },
+};
+
+static std::unordered_map<ABI::AdaptiveCards::XamlCardRenderer::ActionType, std::string, EnumHash> ActionTypeEnumToName =
+{
+    { ABI::AdaptiveCards::XamlCardRenderer::ActionType::Http, "Action.Http" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ActionType::OpenUrl, "Action.OpenUrl" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ActionType::ShowCard, "Action.ShowCard" },
+    { ABI::AdaptiveCards::XamlCardRenderer::ActionType::Submit, "Action.Submit" }
+};
+
+HRESULT ElementTypeToString(ABI::AdaptiveCards::XamlCardRenderer::ElementType elementType, HSTRING* result)
+{
+    if (ElementTypeEnumToName.find(elementType) == ElementTypeEnumToName.end())
+    {
+        return E_INVALIDARG;
+    }
+
+    return UTF8ToHString(ElementTypeEnumToName[elementType], result);
+}
+
+HRESULT ActionTypeToString(ABI::AdaptiveCards::XamlCardRenderer::ActionType actionType, HSTRING* result)
+{
+    if (ActionTypeEnumToName.find(actionType) == ActionTypeEnumToName.end())
+    {
+        return E_INVALIDARG;
+    }
+
+    return UTF8ToHString(ActionTypeEnumToName[actionType], result);
+}

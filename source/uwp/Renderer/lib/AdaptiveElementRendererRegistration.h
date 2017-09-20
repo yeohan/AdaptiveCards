@@ -1,31 +1,20 @@
 #pragma once
 
 #include "AdaptiveCards.XamlCardRenderer.h"
+#include "Util.h"
 
 namespace AdaptiveCards { namespace XamlCardRenderer
 {
-    struct CaseInsensitiveEqualTo {
-        bool operator() (const std::string& lhs, const std::string& rhs) const {
-            return strncasecmp(lhs.c_str(), rhs.c_str(), CHAR_MAX) == 0;
-        }
-    };
-
-    struct CaseInsensitiveHash {
-        size_t operator() (const std::string& keyval) const {
-            return std::accumulate(keyval.begin(), keyval.end(), size_t{ 0 }, [](size_t acc, char c) { return acc + static_cast<size_t>(std::tolower(c)); });
-        }
-    };
-
-    class AdaptiveRendererRegistration :
+    class AdaptiveElementRendererRegistration :
         public Microsoft::WRL::RuntimeClass<
         Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>,
-        Microsoft::WRL::Implements<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration>,
+        Microsoft::WRL::Implements<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration>,
         Microsoft::WRL::FtmBase>
     {
-        InspectableClass(RuntimeClass_AdaptiveCards_XamlCardRenderer_AdaptiveRendererRegistration, BaseTrust)
+        InspectableClass(RuntimeClass_AdaptiveCards_XamlCardRenderer_AdaptiveElementRendererRegistration, BaseTrust)
 
     public:
-        AdaptiveRendererRegistration();
+        AdaptiveElementRendererRegistration();
         HRESULT RuntimeClassInitialize() noexcept;
 
         IFACEMETHODIMP RegisterRenderer(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRenderer* renderer);
@@ -40,5 +29,5 @@ namespace AdaptiveCards { namespace XamlCardRenderer
 
     };
 
-    ActivatableClass(AdaptiveRendererRegistration);
+    ActivatableClass(AdaptiveElementRendererRegistration);
 }}

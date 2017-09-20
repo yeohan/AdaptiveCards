@@ -1,6 +1,6 @@
 #include "pch.h"
 
-#include "AdaptiveTextBlockRenderer.h"
+#include "AdaptiveTextInputRenderer.h"
 #include "enums.h"
 #include "Util.h"
 
@@ -11,14 +11,14 @@ using namespace ABI::Windows::Foundation;
 
 namespace AdaptiveCards { namespace XamlCardRenderer
 {
-    HRESULT AdaptiveTextBlockRenderer::RuntimeClassInitialize() noexcept try
+    HRESULT AdaptiveTextInputRenderer::RuntimeClassInitialize() noexcept try
     {
         return S_OK;
     } CATCH_RETURN;
 
 
     _Use_decl_annotations_
-    HRESULT AdaptiveTextBlockRenderer::Render(
+    HRESULT AdaptiveTextInputRenderer::Render(
         IAdaptiveCardElement* cardElement,
         IAdaptiveRenderContext* renderContext,
         ABI::Windows::UI::Xaml::IUIElement** result)
@@ -27,8 +27,8 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     }
 
     _Use_decl_annotations_
-    HRESULT AdaptiveTextBlockRenderer::get_Type(HSTRING* type)
+    HRESULT AdaptiveTextInputRenderer::get_Type(HSTRING* type)
     {
-        return UTF8ToHString(CardElementTypeToString(CardElementType::TextBlock), type);
+        return UTF8ToHString(CardElementTypeToString(CardElementType::TextInput), type);
     }
 }}

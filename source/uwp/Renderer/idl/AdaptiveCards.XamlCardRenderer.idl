@@ -54,7 +54,8 @@ namespace AdaptiveCards
         runtimeclass AdaptiveHostConfig;
         runtimeclass AdaptiveActionEventArgs;
 
-        runtimeclass AdaptiveRendererRegistration;
+        runtimeclass AdaptiveElementRendererRegistration;
+        runtimeclass AdaptiveActionRendererRegistration;
         runtimeclass AdaptiveRenderContext;
         runtimeclass AdaptiveTextBlockRenderer;
         runtimeclass AdaptiveCardRenderer;
@@ -72,8 +73,12 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTextInputRenderer;
         runtimeclass AdaptiveTimeInputRenderer;
         runtimeclass AdaptiveToggleInputRenderer;
+        runtimeclass AdaptiveSubmitActionRenderer;
+        runtimeclass AdaptiveOpenUrlActionRenderer;
+        runtimeclass AdaptiveShowCardActionRenderer;
 
-        interface IAdaptiveRendererRegistration;
+        interface IAdaptiveElementRendererRegistration;
+        interface IAdaptiveActionRendererRegistration;
         interface IAdaptiveElementRenderer;
         interface IAdaptiveActionRenderer;
         interface IAdaptiveRenderContext;
@@ -777,9 +782,9 @@ namespace AdaptiveCards
         [
             uuid(f5a25e03-4d0e-4f0b-9ef6-3e6c37477e86),
             version(NTDDI_WIN10_RS1),
-            exclusiveto(AdaptiveRendererRegistration)
+            exclusiveto(AdaptiveElementRendererRegistration)
         ]
-        interface IAdaptiveRendererRegistration : IInspectable
+        interface IAdaptiveElementRendererRegistration : IInspectable
         {
             HRESULT RegisterRenderer([in] IAdaptiveElementRenderer* renderer);
             HRESULT GetRenderer([in] HSTRING type, [out, retval] IAdaptiveElementRenderer** result);
@@ -789,9 +794,29 @@ namespace AdaptiveCards
             version(NTDDI_WIN10_RS1),
             activatable(NTDDI_WIN10_RS1)
         ]
-        runtimeclass AdaptiveRendererRegistration
+        runtimeclass AdaptiveElementRendererRegistration
         {
-            [default] interface IAdaptiveRendererRegistration;
+            [default] interface IAdaptiveElementRendererRegistration;
+        };
+
+        [
+            uuid(ca06924a-9c41-4831-9cc7-caa182a1d087),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveActionRendererRegistration)
+        ]
+        interface IAdaptiveActionRendererRegistration : IInspectable
+        {
+            HRESULT RegisterRenderer([in] IAdaptiveActionRenderer* renderer);
+            HRESULT GetRenderer([in] HSTRING type, [out, retval] IAdaptiveActionRenderer** result);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveActionRendererRegistration
+        {
+            [default] interface IAdaptiveActionRendererRegistration;
         };
 
         [
@@ -802,7 +827,11 @@ namespace AdaptiveCards
         interface IAdaptiveRenderContext : IInspectable
         {
             [propget] HRESULT HostConfig([out, retval] AdaptiveHostConfig** value);
-            [propget] HRESULT RendererRegistration([out, retval] AdaptiveRendererRegistration** value);
+
+            [propget] HRESULT ElementRendererRegistration([out, retval] AdaptiveElementRendererRegistration** value);
+
+            [propget] HRESULT ActionRendererRegistration([out, retval] AdaptiveActionRendererRegistration** value);
+
         };
 
         [
@@ -959,6 +988,16 @@ namespace AdaptiveCards
             [default] interface IAdaptiveElementRenderer;
         };
 
+        [
+            uuid(907f6db7-2656-44d7-a05e-1baa2a1fb183),
+            version(NTDDI_WIN10_RS1),
+        ]
+        interface IAdaptiveActionRenderer : IInspectable
+        {
+            HRESULT Render([in] IAdaptiveActionElement* element, [in] AdaptiveRenderContext* context, [out, retval] Windows.UI.Xaml.UIElement** result);
+            [propget] HRESULT Type([out, retval] HSTRING* type);
+        };
+
 
         [flags]
         [version(NTDDI_WIN10_RS1)]
@@ -989,7 +1028,8 @@ namespace AdaptiveCards
             [eventadd] HRESULT Action([in] Windows.Foundation.TypedEventHandler<XamlCardRenderer*, AdaptiveActionEventArgs*>* pHandler, [out][retval] EventRegistrationToken* pToken);
             [eventremove] HRESULT Action([in] EventRegistrationToken token);
 
-            [propget] HRESULT RendererRegistration([out, retval] AdaptiveRendererRegistration** registration);
+            [propget] HRESULT ElementRendererRegistration([out, retval] AdaptiveElementRendererRegistration** registration);
+            [propget] HRESULT ActionRendererRegistration([out, retval] AdaptiveActionRendererRegistration** registration);
         };
 
         [

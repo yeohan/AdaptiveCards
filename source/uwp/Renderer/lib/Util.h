@@ -49,3 +49,7 @@ HRESULT GenerateInputChoicesProjection(
     ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveChoiceInput*>* projectedParentContainer) noexcept;
 
 typedef Microsoft::WRL::EventSource<ABI::Windows::Foundation::ITypedEventHandler<ABI::AdaptiveCards::XamlCardRenderer::XamlCardRenderer*, ABI::AdaptiveCards::XamlCardRenderer::AdaptiveActionEventArgs*>> ActionEventSource;
+
+HRESULT ElementTypeToString(ABI::AdaptiveCards::XamlCardRenderer::ElementType elementType, HSTRING* result);
+
+HRESULT ActionTypeToString(ABI::AdaptiveCards::XamlCardRenderer::ActionType actionType, HSTRING* result);

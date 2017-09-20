@@ -114,10 +114,22 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="lib\AdaptiveActionRendererRegistration.h" />
     <ClInclude Include="lib\AdaptiveActionsConfig.h" />
+    <ClInclude Include="lib\AdaptiveChoiceInputRenderer.h" />
+    <ClInclude Include="lib\AdaptiveChoiceSetInputRenderer.h" />
+    <ClInclude Include="lib\AdaptiveColumnRenderer.h" />
+    <ClInclude Include="lib\AdaptiveColumnSetRenderer.h" />
+    <ClInclude Include="lib\AdaptiveContainerRenderer.h" />
+    <ClInclude Include="lib\AdaptiveDateInputRenderer.h" />
     <ClInclude Include="lib\AdaptiveElementRendererRegistration.h" />
+    <ClInclude Include="lib\AdaptiveFactRenderer.h" />
+    <ClInclude Include="lib\AdaptiveFactSetRenderer.h" />
     <ClInclude Include="lib\AdaptiveFontSizesConfig.h" />
+    <ClInclude Include="lib\AdaptiveImageRenderer.h" />
+    <ClInclude Include="lib\AdaptiveImageSetRenderer.h" />
     <ClInclude Include="lib\AdaptiveImageSizesConfig.h" />
+    <ClInclude Include="lib\AdaptiveNumberInputRenderer.h" />
     <ClInclude Include="lib\AdaptiveRenderContext.h" />
     <ClInclude Include="lib\AdaptiveShowCardActionConfig.h" />
     <ClInclude Include="lib\AdaptiveSpacingDefinition.h" />
@@ -148,7 +160,9 @@
     <ClInclude Include="lib\AdaptiveNumberInput.h" />
     <ClInclude Include="lib\AdaptiveTextBlockRenderer.h" />
     <ClInclude Include="lib\AdaptiveTextInput.h" />
+    <ClInclude Include="lib\AdaptiveTextInputRenderer.h" />
     <ClInclude Include="lib\AdaptiveTimeInput.h" />
+    <ClInclude Include="lib\AdaptiveTimeInputRenderer.h" />
     <ClInclude Include="lib\AdaptiveToggleInput.h" />
     <ClInclude Include="lib\AdaptiveImageSetConfig.h" />
     <ClInclude Include="lib\AdaptiveNumberInputConfig.h" />
@@ -163,6 +177,7 @@
     <ClInclude Include="lib\AdaptiveTextConfig.h" />
     <ClInclude Include="lib\AdaptiveTimeInputConfig.h" />
     <ClInclude Include="lib\AdaptiveToggleInputConfig.h" />
+    <ClInclude Include="lib\AdaptiveToggleInputRenderer.h" />
     <ClInclude Include="lib\AsyncOperations.h" />
     <ClInclude Include="lib\DefaultResourceDictionary.h" />
     <ClInclude Include="lib\ErrorHandling.h" />
@@ -175,10 +190,22 @@
     <ClInclude Include="lib\Vector.h" />
     <ClInclude Include="lib\XamlBuilder.h" />
     <ClInclude Include="lib\XamlCardRendererComponent.h" />
+    <ClCompile Include="lib\AdaptiveActionRendererRegistration.cpp" />
     <ClCompile Include="lib\AdaptiveActionsConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveChoiceInputRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveChoiceSetInputRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveColumnRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveColumnSetRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveContainerRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveDateInputRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveElementRendererRegistration.cpp" />
+    <ClCompile Include="lib\AdaptiveFactRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveFactSetRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveFontSizesConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveImageRenderer.cpp" />
+    <ClCompile Include="lib\AdaptiveImageSetRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveImageSizesConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveNumberInputRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveRenderContext.cpp" />
     <ClCompile Include="lib\AdaptiveShowCardActionConfig.cpp" />
     <ClCompile Include="lib\AdaptiveSpacingDefinition.cpp" />
@@ -209,7 +236,9 @@
     <ClCompile Include="lib\AdaptiveNumberInput.cpp" />
     <ClCompile Include="lib\AdaptiveTextBlockRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveTextInput.cpp" />
+    <ClCompile Include="lib\AdaptiveTextInputRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveTimeInput.cpp" />
+    <ClCompile Include="lib\AdaptiveTimeInputRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveToggleInput.cpp" />
     <ClCompile Include="lib\AdaptiveImageSetConfig.cpp" />
     <ClCompile Include="lib\AdaptiveNumberInputConfig.cpp" />
@@ -224,6 +253,7 @@
     <ClCompile Include="lib\AdaptiveTextConfig.cpp" />
     <ClCompile Include="lib\AdaptiveTimeInputConfig.cpp" />
     <ClCompile Include="lib\AdaptiveToggleInputConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveToggleInputRenderer.cpp" />
     <ClCompile Include="lib\ImageLoadTracker.cpp" />
     <ClCompile Include="lib\InputItem.cpp" />
     <ClCompile Include="lib\Util.cpp" />

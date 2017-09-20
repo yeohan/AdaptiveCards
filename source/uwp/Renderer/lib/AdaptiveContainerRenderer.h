@@ -2,16 +2,16 @@
 
 #include "AdaptiveCards.XamlCardRenderer.h"
 #include "Enums.h"
-#include "TextBlock.h"
+#include "Container.h"
 
 namespace AdaptiveCards { namespace XamlCardRenderer
 {
-    class AdaptiveTextBlockRenderer :
+    class AdaptiveContainerRenderer :
         public Microsoft::WRL::RuntimeClass<
         Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>,
         ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRenderer>
     {
-        InspectableClass(RuntimeClass_AdaptiveCards_XamlCardRenderer_AdaptiveTextBlockRenderer, BaseTrust)
+        InspectableClass(RuntimeClass_AdaptiveCards_XamlCardRenderer_AdaptiveContainerRenderer, BaseTrust)
 
     public:
         HRESULT RuntimeClassInitialize() noexcept;
@@ -24,5 +24,5 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         IFACEMETHODIMP get_Type(_Out_ HSTRING* type);
     };
 
-    ActivatableClass(AdaptiveTextBlockRenderer);
+    ActivatableClass(AdaptiveContainerRenderer);
 }}

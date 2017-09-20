@@ -38,8 +38,9 @@ namespace AdaptiveCards { namespace XamlCardRenderer
             _COM_Outptr_ ABI::Windows::UI::Xaml::IUIElement** result);
         IFACEMETHODIMP RenderAdaptiveJsonAsXamlAsync(_In_ HSTRING adaptiveJson,
             _COM_Outptr_ ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::UI::Xaml::UIElement*>** result);
-        
-        IFACEMETHODIMP get_RendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration** result);
+
+        IFACEMETHODIMP get_ElementRendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration** result);
+        IFACEMETHODIMP get_ActionRendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration** result);
 
         HRESULT SendActionEvent(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionEventArgs* eventArgs);
         ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig* GetHostConfig();
@@ -47,11 +48,14 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     private:
         Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> m_overrideDictionary;
         Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig> m_hostConfig;
-        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration> m_rendererRegistration;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration> m_elementRendererRegistration;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration> m_actionRendererRegistration;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRenderContext> m_renderContext;
         std::shared_ptr<ActionEventSource> m_events;
 
         HRESULT CreateAdaptiveCardFromJson(_In_ HSTRING adaptiveJson, _COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCard** adaptiveCard);
-        HRESULT RegisterDefaultRenderers(_Inout_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration* registration);
+        HRESULT RegisterDefaultElementRenderers(_Inout_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration* registration);
+        HRESULT RegisterDefaultActionRenderers(_Inout_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration* registration);
     };
 
     ActivatableClass(XamlCardRenderer);

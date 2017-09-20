@@ -16,9 +16,19 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     public:
         HRESULT RuntimeClassInitialize() noexcept;
 
-        IFACEMETHODIMP get_HostConfig(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig** value);
-        IFACEMETHODIMP get_RendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration** value);
+        HRESULT RuntimeClassInitialize(
+            ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig* hostConfig,
+            ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration* elementRendererRegistration,
+            ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration* actionRendererRegistration) noexcept;
 
+        IFACEMETHODIMP get_HostConfig(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig** value);
+        IFACEMETHODIMP get_ElementRendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration** value);
+        IFACEMETHODIMP get_ActionRendererRegistration(_COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration** value);
+
+    private:
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig> m_hostConfig;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRendererRegistration> m_elementRendererRegistration;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionRendererRegistration> m_actionRendererRegistration;
     };
 
     ActivatableClass(AdaptiveRenderContext);
