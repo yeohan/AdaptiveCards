@@ -35,6 +35,13 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     {
         m_events.reset(new ActionEventSource);
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRendererRegistration>(&m_rendererRegistration));
+        HSTRING textBlockType;
+        RETURN_IF_FAILED(UTF8ToHString("textblock", &textBlockType));
+        RETURN_IF_FAILED(m_rendererRegistration->RegisterRenderer(textBlockType, Make<AdaptiveTextBlockRenderer>().Get()));
+        RETURN_IF_FAILED(UTF8ToHString("TEXTblock", &textBlockType));
+        ComPtr<IAdaptiveElementRenderer> textBlockRenderer;
+        RETURN_IF_FAILED(m_rendererRegistration->GetRenderer(textBlockType, &textBlockRenderer));
+
         return MakeAndInitialize<AdaptiveHostConfig>(&m_hostConfig);
     }
 

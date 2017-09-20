@@ -15,7 +15,11 @@ namespace AdaptiveCards { namespace XamlCardRenderer
 
     HRESULT AdaptiveRendererRegistration::RuntimeClassInitialize() noexcept try
     {
-        m_registrationTable = std::make_shared<std::unordered_map<std::string, ComPtr<IAdaptiveElementRenderer>>>();
+        m_registrationTable = std::make_shared<std::unordered_map<
+            std::string,
+            ComPtr<IAdaptiveElementRenderer>,
+            CaseInsensitiveHash,
+            CaseInsensitiveEqualTo>>();
         return S_OK;
     } CATCH_RETURN;
 
