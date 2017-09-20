@@ -28,7 +28,7 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         AdaptiveRendererRegistration();
         HRESULT RuntimeClassInitialize() noexcept;
 
-        IFACEMETHODIMP RegisterRenderer(_In_ HSTRING type, _In_  ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRenderer* renderer);
+        IFACEMETHODIMP RegisterRenderer(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRenderer* renderer);
         IFACEMETHODIMP GetRenderer(_In_ HSTRING type, _COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveElementRenderer** result);
 
     private:

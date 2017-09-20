@@ -781,7 +781,7 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveRendererRegistration : IInspectable
         {
-            HRESULT RegisterRenderer([in] HSTRING type, [in] IAdaptiveElementRenderer* renderer);
+            HRESULT RegisterRenderer([in] IAdaptiveElementRenderer* renderer);
             HRESULT GetRenderer([in] HSTRING type, [out, retval] IAdaptiveElementRenderer** result);
         };
 
@@ -821,6 +821,7 @@ namespace AdaptiveCards
         interface IAdaptiveElementRenderer: IInspectable
         {
             HRESULT Render([in] IAdaptiveCardElement* element, [in] AdaptiveRenderContext* context, [out, retval] Windows.UI.Xaml.UIElement** result);
+            [propget] HRESULT Type([out, retval] HSTRING* type);
         };
 
         [

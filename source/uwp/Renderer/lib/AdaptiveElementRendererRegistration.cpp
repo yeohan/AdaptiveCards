@@ -24,12 +24,14 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     } CATCH_RETURN;
 
     _Use_decl_annotations_
-    HRESULT AdaptiveRendererRegistration::RegisterRenderer(HSTRING type, IAdaptiveElementRenderer* renderer)
+    HRESULT AdaptiveRendererRegistration::RegisterRenderer(IAdaptiveElementRenderer* renderer)
     {
-        std::string keyAsString;
-        RETURN_IF_FAILED(HStringToUTF8(type, keyAsString));
         ComPtr<IAdaptiveElementRenderer> localRenderer(renderer);
-        auto map = (*m_registrationTable)[keyAsString] = localRenderer;
+        HSTRING type;
+        RETURN_IF_FAILED(localRenderer->get_Type(&type));
+        std::string typeAsKey;
+        RETURN_IF_FAILED(HStringToUTF8(type, typeAsKey));
+        auto map = (*m_registrationTable)[typeAsKey] = localRenderer;
 
         return S_OK;
     }

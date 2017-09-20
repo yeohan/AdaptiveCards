@@ -48,10 +48,10 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> m_overrideDictionary;
         Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveHostConfig> m_hostConfig;
         Microsoft::WRL::ComPtr<ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration> m_rendererRegistration;
-
         std::shared_ptr<ActionEventSource> m_events;
 
         HRESULT CreateAdaptiveCardFromJson(_In_ HSTRING adaptiveJson, _COM_Outptr_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCard** adaptiveCard);
+        HRESULT RegisterDefaultRenderers(_Inout_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveRendererRegistration* registration);
     };
 
     ActivatableClass(XamlCardRenderer);
