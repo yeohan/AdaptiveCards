@@ -5,7 +5,7 @@ using AdaptiveCards;
 using Newtonsoft.Json;
 using AC = AdaptiveCards;
 using AdaptiveCards.Rendering;
-using AdaptiveCards.Rendering.Config;
+using AdaptiveCards.Rendering.Wpf;
 
 namespace WpfVisualizer
 {
@@ -14,13 +14,13 @@ namespace WpfVisualizer
     /// </summary>
     public partial class ShowCardWindow : Window
     {
-        private ShowCardAction _card;
+        private AdaptiveShowCardAction _card;
         private ResourceDictionary _resources;
 
-        public ShowCardWindow(string title, ShowCardAction showCardAction, ResourceDictionary resources)
+        public ShowCardWindow(string title, AdaptiveShowCardAction action, ResourceDictionary resources)
         {
             _resources = resources;
-            _card = showCardAction;
+            _card = action;
 
             InitializeComponent();
 
@@ -29,37 +29,36 @@ namespace WpfVisualizer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var renderer = new XamlRendererExtended(new HostConfig(), this._resources, OnAction);
-            var element = renderer.RenderShowCard(_card);
+            var renderer = new AdaptiveCardRenderer(new AdaptiveHostConfig())
+            {
+                Resources = this._resources
+            };
+            var result = renderer.RenderCard(_card.Card);
 
-            this.Body.Children.Add(element);
+            if (result.FrameworkElement != null)
+            {
+                // Wire up click handler
+                result.OnAction += OnAction;
+
+                this.Body.Children.Add(result.FrameworkElement);
+            }
         }
 
-        private void OnAction(object sender, ActionEventArgs e)
+        private void OnAction(object sender, AdaptiveActionEventArgs e)
         {
-            if (e.Action is AC.OpenUrlAction)
+            if (e.Action is AC.AdaptiveOpenUrlAction)
             {
-                AC.OpenUrlAction action = (AC.OpenUrlAction)e.Action;
+                AC.AdaptiveOpenUrlAction action = (AC.AdaptiveOpenUrlAction)e.Action;
                 Process.Start(action.Url);
             }
-            else if (e.Action is AC.ShowCardAction)
+            else if (e.Action is AC.AdaptiveShowCardAction)
             {
                 MessageBox.Show("Action.ShowCard is not alloed from within a sub-card");
             }
-            else if (e.Action is AC.SubmitAction)
+            else if (e.Action is AC.AdaptiveSubmitAction)
             {
-                AC.SubmitAction action = (AC.SubmitAction)e.Action;
+                AC.AdaptiveSubmitAction action = (AC.AdaptiveSubmitAction)e.Action;
                 System.Windows.MessageBox.Show(this, JsonConvert.SerializeObject(e.Data, Newtonsoft.Json.Formatting.Indented), "SubmitAction");
-                this.Close();
-            }
-            else if (e.Action is AC.HttpAction)
-            {
-                AC.HttpAction action = (AC.HttpAction)e.Action;
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"HEADERS={JsonConvert.SerializeObject(action.Headers)}");
-                sb.AppendLine($"BODY={action.Body}");
-                sb.AppendLine($"DATA={e.Data}");
-                System.Windows.MessageBox.Show(this, sb.ToString(), $"HttpAction {action.Method} {action.Url}");
                 this.Close();
             }
         }

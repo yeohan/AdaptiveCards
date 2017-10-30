@@ -5,11 +5,6 @@
 
 using namespace AdaptiveCards;
 
-const std::unordered_map<CardElementType, std::function<std::shared_ptr<Column>(const Json::Value&)>, EnumHash> ColumnSet::ColumnParser =
-{
-    { CardElementType::Column, Column::Deserialize }
-};
-
 ColumnSet::ColumnSet() : BaseCardElement(CardElementType::ColumnSet)
 {
 }
@@ -26,6 +21,16 @@ const std::vector<std::shared_ptr<Column>>& ColumnSet::GetColumns() const
 std::vector<std::shared_ptr<Column>>& ColumnSet::GetColumns()
 {
     return m_columns;
+}
+
+std::shared_ptr<BaseActionElement> ColumnSet::GetSelectAction() const
+{
+    return m_selectAction;
+}
+
+void ColumnSet::SetSelectAction(const std::shared_ptr<BaseActionElement> action)
+{
+    m_selectAction = action;
 }
 
 std::string ColumnSet::Serialize()
@@ -45,6 +50,8 @@ Json::Value ColumnSet::SerializeToJsonValue()
         root[propertyName].append(column->SerializeToJsonValue());
     }
 
+    root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::SelectAction)] = BaseCardElement::SerializeSelectAction(GetSelectAction());
+
     return root;
 }
 
@@ -55,8 +62,11 @@ std::shared_ptr<ColumnSet> ColumnSet::Deserialize(const Json::Value& value)
     auto container = BaseCardElement::Deserialize<ColumnSet>(value);
 
     // Parse Columns
-    auto cardElements = ParseUtil::GetElementCollection<Column>(value, AdaptiveCardSchemaKey::Columns, ColumnParser, true);
+    auto cardElements = ParseUtil::GetElementCollectionOfSingleType<Column>(value, AdaptiveCardSchemaKey::Columns, Column::Deserialize, true);
     container->m_columns = std::move(cardElements);
+
+    container->SetSelectAction(BaseCardElement::DeserializeSelectAction(value, AdaptiveCardSchemaKey::SelectAction));
+
     return container;
 }
 

@@ -8,8 +8,8 @@ BaseInputElement::BaseInputElement(CardElementType elementType) :
 {
 }
 
-BaseInputElement::BaseInputElement(CardElementType elementType, SeparationStyle separationStyle, std::string speak) :
-    BaseCardElement(elementType, separationStyle, speak)
+BaseInputElement::BaseInputElement(CardElementType elementType, Spacing spacing, bool separator) :
+    BaseCardElement(elementType, spacing, separator)
 {
 }
 
@@ -42,4 +42,3 @@ Json::Value BaseInputElement::SerializeToJsonValue()
 
     return root;
 }
-

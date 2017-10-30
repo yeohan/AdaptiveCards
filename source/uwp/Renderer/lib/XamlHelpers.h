@@ -1,8 +1,8 @@
 #pragma once
 
-#include "AdaptiveCards.XamlCardRenderer.h"
+#include "AdaptiveCards.Uwp.h"
 
-namespace AdaptiveCards { namespace XamlCardRenderer
+namespace AdaptiveCards { namespace Uwp
 {
     class XamlHelpers
     {
@@ -54,6 +54,11 @@ namespace AdaptiveCards { namespace XamlCardRenderer
             T* xamlElement,
             ABI::Windows::UI::Xaml::Controls::IPanel* panel)
         {
+            if (!xamlElement)
+            {
+                return;
+            }
+
             Microsoft::WRL::ComPtr<T> localXamlElement(xamlElement);
 
             ComPtr<IUIElement> elementToAppend;

@@ -35,20 +35,20 @@ public class BaseActionElement {
     }
   }
 
-  public String GetSpeak() {
-    return AdaptiveCardObjectModelJNI.BaseActionElement_GetSpeak(swigCPtr, this);
-  }
-
-  public void SetSpeak(String value) {
-    AdaptiveCardObjectModelJNI.BaseActionElement_SetSpeak(swigCPtr, this, value);
-  }
-
   public String GetTitle() {
     return AdaptiveCardObjectModelJNI.BaseActionElement_GetTitle(swigCPtr, this);
   }
 
   public void SetTitle(String value) {
     AdaptiveCardObjectModelJNI.BaseActionElement_SetTitle(swigCPtr, this, value);
+  }
+
+  public String GetId() {
+    return AdaptiveCardObjectModelJNI.BaseActionElement_GetId(swigCPtr, this);
+  }
+
+  public void SetId(String value) {
+    AdaptiveCardObjectModelJNI.BaseActionElement_SetId(swigCPtr, this, value);
   }
 
   public ActionType GetElementType() {
@@ -61,6 +61,14 @@ public class BaseActionElement {
 
   public SWIGTYPE_p_Json__Value SerializeToJsonValue() {
     return new SWIGTYPE_p_Json__Value(AdaptiveCardObjectModelJNI.BaseActionElement_SerializeToJsonValue(swigCPtr, this), true);
+  }
+
+  public SWIGTYPE_p_Json__Value GetAdditionalProperties() {
+    return new SWIGTYPE_p_Json__Value(AdaptiveCardObjectModelJNI.BaseActionElement_GetAdditionalProperties(swigCPtr, this), true);
+  }
+
+  public void SetAdditionalProperties(SWIGTYPE_p_Json__Value additionalProperties) {
+    AdaptiveCardObjectModelJNI.BaseActionElement_SetAdditionalProperties(swigCPtr, this, SWIGTYPE_p_Json__Value.getCPtr(additionalProperties));
   }
 
 }

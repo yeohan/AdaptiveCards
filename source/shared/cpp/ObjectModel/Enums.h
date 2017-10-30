@@ -39,12 +39,15 @@ enum class AdaptiveCardSchemaKey
     ActionSetConfig,
     ActionsOrientation,
     AdaptiveCard,
+    AllowCustomStyle,
     AltText,
     Attention,
     BackgroundColor,
+    BackgroundImage,
     BackgroundImageUrl,
     BaseCardElement,
     Body,
+    Bolder,
     BorderColor,
     BorderThickness,
     Bottom,
@@ -55,12 +58,12 @@ enum class AdaptiveCardSchemaKey
     ChoiceSet,
     Color,
     ColorConfig,
-    Colors,
+    ForegroundColors,
     Column,
     Columns,
     ColumnSet,
     Container,
-    ContainerStyleConfig,
+    ContainerStyles,
     Dark,
     Data,
     DateInput,
@@ -72,6 +75,7 @@ enum class AdaptiveCardSchemaKey
     FallbackText,
     FontFamily,
     FontSizes,
+    FontWeights,
     Good,
     HorizontalAlignment,
     Id,
@@ -90,23 +94,25 @@ enum class AdaptiveCardSchemaKey
     Large,
     Left,
     Light,
+    Lighter,
     LineColor,
     LineThickness,
     Max,
     MaxActions,
+    MaxImageHeight,
     MaxLength,
     MaxLines,
+    MaxWidth,
     Medium,
     Method,
     Min,
     MinVersion,
-    Normal,
     NumberInput,
     Padding,
     Placeholder,
     Right,
     SelectAction,
-    Separation,
+    Separator,
     ShowActionMode,
     ShowCard,
     ShowCardActionConfig,
@@ -116,7 +122,6 @@ enum class AdaptiveCardSchemaKey
     SpacingDefinition,
     Speak,
     Stretch,
-    StrongSeparation,
     Style,
     Subtle,
     SupportsInteractivity,
@@ -125,6 +130,8 @@ enum class AdaptiveCardSchemaKey
     TextConfig,
     TextInput,
     TextWeight,
+    Thick,
+    Thickness,
     TimeInput,
     Title,
     ToggleInput,
@@ -137,13 +144,14 @@ enum class AdaptiveCardSchemaKey
     Version,
     Warning,
     Weight,
+    Width,
     Wrap,
 };
 
 enum class TextSize
 {
     Small = 0,
-    Normal,
+    Default,
     Medium,
     Large,
     ExtraLarge
@@ -151,11 +159,11 @@ enum class TextSize
 
 enum class TextWeight {
     Lighter = 0,
-    Normal,
+    Default,
     Bolder
 };
 
-enum class TextColor {
+enum class ForegroundColor {
     Default = 0,
     Dark,
     Light,
@@ -172,12 +180,12 @@ enum class HorizontalAlignment {
 };
 
 enum class ImageStyle {
-    Normal = 0,
+    Default = 0,
     Person
 };
 
 enum class ImageSize {
-    Default = 0,
+    None = 0,
     Auto,
     Stretch,
     Small,
@@ -204,12 +212,14 @@ enum class CardElementType
     FactSet,
     Fact,
     ImageSet,
+    ChoiceInput,
+    ChoiceSetInput,
     DateInput,
     NumberInput,
     TextInput,
     TimeInput,
     ToggleInput,
-    ChoiceSetInput,
+    Custom
 };
 
 enum class ActionType
@@ -217,8 +227,8 @@ enum class ActionType
     Unsupported = 0, 
     ShowCard,
     Submit,
-    Http,
     OpenUrl,
+    Custom
 };
 
 enum class ActionAlignment
@@ -235,10 +245,19 @@ enum class ChoiceSetStyle
     Expanded
 };
 
-enum class SeparationStyle {
+enum class SeparatorThickness {
+    Default = 0,
+    Thick,
+};
+
+enum class Spacing {
     Default = 0,
     None,
-    Strong,
+    Small,
+    Medium,
+    Large,
+    ExtraLarge,
+    Padding
 };
 
 enum class ActionsOrientation {
@@ -247,13 +266,13 @@ enum class ActionsOrientation {
 };
 
 enum class ActionMode {
-    InlineEdgeToEdge = 0,
-    Inline,
+    Inline = 0,
     Popup
 };
 
 enum class ContainerStyle {
-    Normal = 0,
+    None,
+    Default,
     Emphasis
 };
 
@@ -269,8 +288,8 @@ ActionType ActionTypeFromString(const std::string& actionType);
 const std::string HorizontalAlignmentToString(HorizontalAlignment alignment);
 HorizontalAlignment HorizontalAlignmentFromString(const std::string& alignment);
 
-const std::string TextColorToString(TextColor type);
-TextColor TextColorFromString(const std::string& type);
+const std::string ForegroundColorToString(ForegroundColor type);
+ForegroundColor ForegroundColorFromString(const std::string& type);
 
 const std::string TextWeightToString(TextWeight type);
 TextWeight TextWeightFromString(const std::string& type);
@@ -281,8 +300,11 @@ TextSize TextSizeFromString(const std::string& size);
 const std::string ImageSizeToString(ImageSize size);
 ImageSize ImageSizeFromString(const std::string& size);
 
-const std::string SeparationStyleToString(SeparationStyle style);
-SeparationStyle SeparationStyleFromString(const std::string& style);
+const std::string SpacingToString(Spacing spacing);
+Spacing SpacingFromString(const std::string& spacing);
+
+const std::string SeparatorThicknessToString(SeparatorThickness separatorThickness);
+SeparatorThickness SeparatorThicknessFromString(const std::string& separatorThickness);
 
 const std::string ImageStyleToString(ImageStyle style);
 ImageStyle ImageStyleFromString(const std::string& style);

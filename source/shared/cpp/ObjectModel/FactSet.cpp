@@ -9,18 +9,18 @@ FactSet::FactSet() : BaseCardElement(CardElementType::FactSet)
 }
 
 FactSet::FactSet(
-    SeparationStyle separation,
-    std::string speak,
+    Spacing spacing,
+    bool separation,
     std::vector<std::shared_ptr<Fact>>& facts) :
-    BaseCardElement(CardElementType::FactSet, separation, speak),
+    BaseCardElement(CardElementType::FactSet, spacing, separation),
     m_facts(facts)
 {
 }
 
 FactSet::FactSet(
-    SeparationStyle separation,
-    std::string speak) :
-    BaseCardElement(CardElementType::FactSet, separation, speak)
+    Spacing spacing,
+    bool separation) :
+    BaseCardElement(CardElementType::FactSet, spacing, separation)
 {
 }
 
@@ -61,20 +61,9 @@ std::shared_ptr<FactSet> FactSet::Deserialize(const Json::Value& value)
     auto factSet = BaseCardElement::Deserialize<FactSet>(value);
 
     // Parse Facts
-    auto factsArray = ParseUtil::GetArray(value, AdaptiveCardSchemaKey::Facts, true);
-    std::vector<std::shared_ptr<Fact>> facts;
-
-    // Deserialize every fact in the array
-    for (const Json::Value& element : factsArray)
-    {
-        auto fact = Fact::Deserialize(element);
-        if (fact != nullptr)
-        {
-            facts.push_back(fact);
-        }
-    }
-
+    auto facts = ParseUtil::GetElementCollectionOfSingleType<Fact>(value, AdaptiveCardSchemaKey::Facts, Fact::Deserialize, true);
     factSet->m_facts = std::move(facts);
+
     return factSet;
 }
 

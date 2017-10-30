@@ -16,6 +16,7 @@ import com.microsoft.adaptivecards.renderer.BaseCardElementRenderer;
 import com.microsoft.adaptivecards.renderer.registration.CardRendererRegistration;
 
 import java.util.Vector;
+import java.util.Locale;
 
 /**
  * Created by bekao on 4/27/2017.
@@ -38,7 +39,7 @@ public class ColumnRenderer extends BaseCardElementRenderer
     }
 
     @Override
-    public ViewGroup render(
+    public View render(
             Context context,
             FragmentManager fragmentManager,
             ViewGroup viewGroup,
@@ -58,30 +59,34 @@ public class ColumnRenderer extends BaseCardElementRenderer
             Vector<IInputHandler> inputActionHandlerList,
             HostConfig hostConfig)
     {
+        GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         BaseCardElementVector baseCardElementVector = column.GetItems();
         View returnedView = CardRendererRegistration.getInstance().render(context, fragmentManager, null, column, baseCardElementVector, inputActionHandlerList, hostConfig);
-        String columnSize = column.GetSize().toLowerCase();
+        String columnSize = column.GetWidth().toLowerCase(Locale.getDefault());
         if (TextUtils.isEmpty(columnSize) || columnSize.equals(g_columnSizeAuto))
         {
-            GridLayout.LayoutParams param = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index));
-            returnedView.setLayoutParams(param);
+            //GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index));
+            layoutParams.columnSpec = GridLayout.spec(index);
+            returnedView.setLayoutParams(layoutParams);
         }
         else if (columnSize.equals(g_columnSizeStretch))
         {
-            GridLayout.LayoutParams param = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index, 1f));
-            returnedView.setLayoutParams(param);
+            //GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index, 1f));
+            layoutParams.columnSpec = GridLayout.spec(index, 1f);
+            returnedView.setLayoutParams(layoutParams);
         }
         else
         {
             try
             {
                 int columnWeight = Integer.parseInt(columnSize);
-                GridLayout.LayoutParams param = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index, (float)columnWeight));
-                returnedView.setLayoutParams(param);
+                //GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams(GridLayout.spec(0), GridLayout.spec(index, (float)columnWeight));
+                layoutParams.columnSpec = GridLayout.spec(index, (float)columnWeight);
+                returnedView.setLayoutParams(layoutParams);
             }
             catch (NumberFormatException numFormatExcep)
             {
-                throw new IllegalArgumentException("Column Size (" + column.GetSize() + ") is not a valid weight ('auto', 'stretch', <integer>).");
+                throw new IllegalArgumentException("Column Width (" + column.GetWidth() + ") is not a valid weight ('auto', 'stretch', <integer>).");
             }
         }
 

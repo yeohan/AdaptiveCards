@@ -11,8 +11,9 @@ class Image : public BaseCardElement
 {
 public:
     Image();
-    Image(SeparationStyle separationStyle,
-        std::string speak,
+    Image(
+        Spacing spacing,
+        bool separator,
         std::string uri,
         ImageStyle imageStyle,
         ImageSize imageSize,
@@ -20,6 +21,7 @@ public:
         HorizontalAlignment hAlignment);
 
     static std::shared_ptr<Image> Deserialize(const Json::Value& root);
+    static std::shared_ptr<Image> DeserializeWithoutCheckingType(const Json::Value& root);
     static std::shared_ptr<Image> DeserializeFromString(const std::string& jsonString);
 
     virtual std::string Serialize();
