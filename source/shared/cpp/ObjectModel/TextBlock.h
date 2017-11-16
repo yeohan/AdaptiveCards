@@ -3,7 +3,6 @@
 #include "pch.h"
 #include "BaseCardElement.h"
 #include "Enums.h"
-#include <time.h>
 #include "ElementParserRegistration.h"
 
 namespace AdaptiveCards
@@ -59,8 +58,6 @@ private:
     bool m_wrap;
     unsigned int m_maxLines;
     HorizontalAlignment m_hAlignment;
-    std::string ParseDateTime() const;
-    static bool IsValidTimeAndDate(const struct tm &parsedTm, int hours, int minutes);
 };
 
 class TextBlockParser : public IBaseCardElementParser
