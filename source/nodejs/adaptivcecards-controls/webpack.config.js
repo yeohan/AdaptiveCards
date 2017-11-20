@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./src/ms-js-controls.ts",
+    entry: "./src/adaptivecards-controls.ts",
     output: {
-        filename: "./dist/ms-js-controls.js",
-        library: 'MsJsControls'
+        filename: "./dist/adaptivecards-controls.js",
+        library: "AdaptiveCardsControls"
     },
 
     resolve: {

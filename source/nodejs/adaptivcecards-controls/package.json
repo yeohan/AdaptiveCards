@@ -1,8 +1,8 @@
 {
-  "name": "ms-js-controls",
+  "name": "adaptive-controls",
   "version": "0.1.0",
-  "description": "HTML controls in pure Javascript.",
-  "main": "built/ms-js-controls.js",
+  "description": "A library of pure JS/HTML controls designed for use with Adaptive Cards.",
+  "main": "built/adaptivecards-controls.js",
   "private": true,
   "scripts": {
     "build-dist": "webpack",
