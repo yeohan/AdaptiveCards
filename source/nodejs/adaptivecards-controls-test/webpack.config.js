@@ -27,7 +27,7 @@ var testapp = {
         ]
     },
     externals: {
-        "ms-js-controls": "MsJsControls"
+        "adaptivecards-controls": "AdaptiveCardsControls"
     }
 };
 

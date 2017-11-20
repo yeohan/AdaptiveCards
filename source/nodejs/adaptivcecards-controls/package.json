@@ -1,5 +1,5 @@
 {
-  "name": "adaptive-controls",
+  "name": "adaptivecards-controls",
   "version": "0.1.0",
   "description": "A library of pure JS/HTML controls designed for use with Adaptive Cards.",
   "main": "built/adaptivecards-controls.js",
