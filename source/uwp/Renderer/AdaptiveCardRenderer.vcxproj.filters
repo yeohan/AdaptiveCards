@@ -70,6 +70,11 @@
     <ClCompile Include="lib\AdaptiveContainerRenderer.cpp" />
     <ClCompile Include="lib\AdaptiveRenderArgs.cpp" />
     <ClCompile Include="lib\AdaptiveActionInvoker.cpp" />
+    <ClCompile Include="lib\CustomElementWrapper.cpp" />
+    <ClCompile Include="lib\CustomActionWrapper.cpp" />
+    <ClCompile Include="lib\WholeItemsPanel.cpp" />
+    <ClCompile Include="lib\AdaptiveError.cpp" />
+    <ClCompile Include="lib\AdaptiveWarning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\AdaptiveCard.h" />
@@ -89,7 +94,6 @@
     <ClInclude Include="lib\Vector.h" />
     <ClInclude Include="lib\XamlBuilder.h" />
     <ClInclude Include="lib\XamlHelpers.h" />
-    <ClInclude Include="lib\XamlStyleKeyGenerators.h" />
     <ClInclude Include="lib\AdaptiveFactSet.h" />
     <ClInclude Include="lib\AdaptiveFact.h" />
     <ClInclude Include="lib\AdaptiveImageSet.h" />
@@ -149,6 +153,11 @@
     <ClInclude Include="lib\AdaptiveHostConfigParseResult.h" />
     <ClInclude Include="lib\AdaptiveRenderArgs.h" />
     <ClInclude Include="lib\AdaptiveActionInvoker.h" />
+    <ClInclude Include="lib\CustomElementWrapper.h" />
+    <ClInclude Include="lib\CustomActionWrapper.h" />
+    <ClInclude Include="lib\WholeItemsPanel.h" />
+    <ClInclude Include="lib\AdaptiveError.h" />
+    <ClInclude Include="lib\AdaptiveWarning.h" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="idl\AdaptiveCards.Uwp.idl" />

@@ -49,11 +49,13 @@ namespace AdaptiveCards
         runtimeclass AdaptiveSeparatorConfig;
         runtimeclass AdaptiveContainerStyleDefinition;
         runtimeclass AdaptiveContainerStylesDefinition;
-        runtimeclass AdaptiveActionEventArgs;
         runtimeclass RenderedAdaptiveCard;
+        runtimeclass AdaptiveActionEventArgs;
         runtimeclass AdaptiveInputs;
         runtimeclass AdaptiveCardParseResult;
         runtimeclass AdaptiveHostConfigParseResult;
+        runtimeclass AdaptiveError;
+        runtimeclass AdaptiveWarning;
 
         runtimeclass AdaptiveElementParserRegistration;
         runtimeclass AdaptiveActionParserRegistration;
@@ -75,6 +77,8 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTextInputRenderer;
         runtimeclass AdaptiveTimeInputRenderer;
         runtimeclass AdaptiveToggleInputRenderer;
+
+        runtimeclass WholeItemsPanel;
 
         interface IAdaptiveCardResourceResolvers;
         interface IAdaptiveCardResourceResolver;
@@ -99,6 +103,8 @@ namespace AdaptiveCards
         interface IAdaptiveTimeInput;
         interface IAdaptiveToggleInput;
         interface IAdaptiveSeparator;
+        interface IAdaptiveError;
+        interface IAdaptiveWarning;
 
         interface IAdaptiveFontSizesConfig;
         interface IAdaptiveFontWeightsConfig;
@@ -134,6 +140,8 @@ namespace AdaptiveCards
         interface IAdaptiveRenderContext;
         interface IAdaptiveRenderArgs;
         interface IAdaptiveActionInvoker;
+
+        interface IWholeItemsPanel;
 
         [version(NTDDI_WIN10_RS1)]
         typedef [v1_enum] enum TextSize
@@ -199,7 +207,7 @@ namespace AdaptiveCards
         [version(NTDDI_WIN10_RS1)]
         typedef [v1_enum] enum ActionType
         {
-            Unsupported = 0, 
+            Unsupported = 0,
             ShowCard,
             Submit,
             OpenUrl,
@@ -281,10 +289,25 @@ namespace AdaptiveCards
         } ContainerStyle;
 
         [version(NTDDI_WIN10_RS1)]
-        typedef [v1_enum] enum InputValueMode
-        {
-            RawString = 0,
-        } InputValueMode;
+        typedef [v1_enum] enum ErrorStatusCode {
+            InvalidJson = 0,
+            UnsupportedSchemaVersion,
+            RenderFailed,
+            RequiredPropertyMissing,
+            InvalidPropertyValue,
+            UnsupportedParserOverride
+        } ErrorStatusCode;
+
+        [version(NTDDI_WIN10_RS1)]
+        typedef [v1_enum] enum WarningStatusCode {
+            UnknownElementType = 0,
+            UnknownPropertyOnElement,
+            UnknownEnumValue,
+            NoRendererForType,
+            InteractivityNotSupported,
+            MaxActionsExceeded,
+            AssetLoadFailed
+        } WarningStatusCode;
 
         declare
         {
@@ -293,10 +316,12 @@ namespace AdaptiveCards
             interface Windows.Foundation.Collections.IVector<IAdaptiveColumn*>;
             interface Windows.Foundation.Collections.IVector<IAdaptiveFact*>;
             interface Windows.Foundation.Collections.IVector<IAdaptiveChoiceInput*>;
+            interface Windows.Foundation.Collections.IVector<IAdaptiveError*>;
+            interface Windows.Foundation.Collections.IVector<IAdaptiveWarning*>;
             interface Windows.Foundation.Collections.IObservableVector<IAdaptiveCardElement*>;
             interface Windows.Foundation.Collections.IObservableVector<IAdaptiveColumn*>;
             interface Windows.Foundation.Collections.IObservableVector<IAdaptiveColumn*>;
-            interface Windows.Foundation.IAsyncOperation<Windows.UI.Xaml.UIElement*>;
+            interface Windows.Foundation.IAsyncOperation<RenderedAdaptiveCard*>;
             interface Windows.Foundation.IReference<Windows.UI.Text.FontWeight>;
         }
 
@@ -307,6 +332,7 @@ namespace AdaptiveCards
         interface IAdaptiveCardElement : IInspectable
         {
             [propget] HRESULT ElementType([out, retval] ElementType* value);
+            [propget] HRESULT ElementTypeString([out, retval] HSTRING* value);
 
             [propget] HRESULT Spacing([out, retval] Spacing* value);
             [propput] HRESULT Spacing([in] Spacing value);
@@ -317,7 +343,7 @@ namespace AdaptiveCards
             [propget] HRESULT Id([out, retval] HSTRING* value);
             [propput] HRESULT Id([in] HSTRING value);
 
-            [propget] HRESULT ElementTypeString([out, retval] HSTRING* value);
+            HRESULT ToJson([out, retval] Windows.Data.Json.JsonObject** value);
         };
 
         [
@@ -427,6 +453,8 @@ namespace AdaptiveCards
         interface IAdaptiveCardParseResult : IInspectable
         {
             [propget] HRESULT AdaptiveCard([out, retval] AdaptiveCard** value);
+            [propget] HRESULT Errors([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveError*>** value);
+            [propget] HRESULT Warnings([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveWarning*>** value);
         };
 
         [
@@ -445,8 +473,29 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveCardStatics : IInspectable
         {
-            HRESULT FromJson([in] Windows.Data.Json.JsonObject* adaptiveJson, [out, retval] AdaptiveCardParseResult** card);
-            HRESULT FromJsonString([in] HSTRING adaptiveJson, [out, retval] AdaptiveCardParseResult** card);
+            [overload("FromJson")]
+            HRESULT FromJson(
+                [in] Windows.Data.Json.JsonObject* adaptiveJson,
+                [out, retval] AdaptiveCardParseResult** card);
+
+            [overload("FromJson")]
+            HRESULT FromJsonWithParserRegistration(
+                [in] Windows.Data.Json.JsonObject* adaptiveJson,
+                [in] AdaptiveElementParserRegistration* elementRegistration,
+                [in] AdaptiveActionParserRegistration* actionRegistration,
+                [out, retval] AdaptiveCardParseResult** card);
+
+            [overload("FromJsonString")]
+            HRESULT FromJsonString(
+                [in] HSTRING adaptiveJson,
+                [out, retval] AdaptiveCardParseResult** card);
+
+            [overload("FromJsonString")]
+            HRESULT FromJsonStringWithParserRegistration(
+                [in] HSTRING adaptiveJson,
+                [in] AdaptiveElementParserRegistration* elementRegistration,
+                [in] AdaptiveActionParserRegistration* actionRegistration,
+                [out, retval] AdaptiveCardParseResult** card);
         };
 
         [
@@ -865,7 +914,9 @@ namespace AdaptiveCards
             [propget] HRESULT HostConfig([out, retval] AdaptiveHostConfig** hostConfig);
             [propput] HRESULT HostConfig([in] AdaptiveHostConfig* hostConfig);
 
-            HRESULT SetOverrideStyles([in] Windows.UI.Xaml.ResourceDictionary* overrideDictionary);
+            [propget] HRESULT OverrideStyles([out, retval] Windows.UI.Xaml.ResourceDictionary** overrideDictionary);
+            [propput] HRESULT OverrideStyles([in] Windows.UI.Xaml.ResourceDictionary* overrideDictionary);
+
             HRESULT SetFixedDimensions([in] UINT32 desiredWidth, [in] UINT32 desiredHeight);
             HRESULT ResetFixedDimensions();
 
@@ -1395,6 +1446,8 @@ namespace AdaptiveCards
         interface IAdaptiveHostConfigParseResult : IInspectable
         {
             [propget] HRESULT HostConfig([out, retval] AdaptiveHostConfig** value);
+            [propget] HRESULT Errors([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveError*>** value);
+            [propget] HRESULT Warnings([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveWarning*>** value);
         };
 
         [
@@ -1444,6 +1497,8 @@ namespace AdaptiveCards
 
             [propget] HRESULT AdditionalProperties([out, retval] Windows.Data.Json.JsonObject** json);
             [propput] HRESULT AdditionalProperties([in] Windows.Data.Json.JsonObject* json);
+
+            HRESULT ToJson([out, retval] Windows.Data.Json.JsonObject** value);
         };
 
         [
@@ -1580,6 +1635,11 @@ namespace AdaptiveCards
 
             [propget] HRESULT UserInputs([out, retval] AdaptiveInputs** value);
 
+            [propget] HRESULT Errors([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveError*>** value);
+
+            [propget] HRESULT Warnings([out, retval] Windows.Foundation.Collections.IVector<IAdaptiveWarning*>** value);
+
+
             [eventadd] HRESULT Action([in] Windows.Foundation.TypedEventHandler<RenderedAdaptiveCard*, AdaptiveActionEventArgs*>* pHandler, [out][retval] EventRegistrationToken* pToken);
             [eventremove] HRESULT Action([in] EventRegistrationToken token);
         };
@@ -1600,7 +1660,7 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveInputs : IInspectable
         {
-            HRESULT AsJson([in] InputValueMode inputMode, [out, retval] Windows.Data.Json.JsonObject** value);
+            HRESULT AsJson([out, retval] Windows.Data.Json.JsonObject** value);
             HRESULT AsValueSet([out, retval] Windows.Foundation.Collections.ValueSet** value);
         };
 
@@ -1619,7 +1679,11 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveElementParser : IInspectable
         {
-            HRESULT FromJson([in] Windows.Data.Json.JsonObject* inputJson, [out, retval] IAdaptiveCardElement** result);
+            HRESULT FromJson(
+                [in] Windows.Data.Json.JsonObject* inputJson,
+                [in] AdaptiveElementParserRegistration* elementParsers,
+                [in] AdaptiveActionParserRegistration* actionParsers,
+                [out, retval] IAdaptiveCardElement** result);
         };
 
         [
@@ -1635,18 +1699,8 @@ namespace AdaptiveCards
         };
 
         [
-            uuid(f17ba6c5-9eb7-43db-8d72-db5d398d3d39),
             version(NTDDI_WIN10_RS1),
-            exclusiveto(AdaptiveElementParserRegistration),
-        ]
-        interface IAdaptiveElementParserRegistrationStatics : IInspectable
-        {
-            HRESULT GetDefault([out, retval] AdaptiveElementParserRegistration** result);
-        };
-
-        [
-            version(NTDDI_WIN10_RS1),
-            activatable(NTDDI_WIN10_RS1)
+            activatable(NTDDI_WIN10_RS1),
         ]
         runtimeclass AdaptiveElementParserRegistration
         {
@@ -1666,16 +1720,6 @@ namespace AdaptiveCards
         };
 
         [
-            uuid(27e0c83f-143a-4d32-a4a9-9794312fd051),
-            version(NTDDI_WIN10_RS1),
-            exclusiveto(AdaptiveActionParserRegistration),
-        ]
-        interface IAdaptiveActionParserRegistrationStatics : IInspectable
-        {
-            HRESULT GetDefault([out, retval] AdaptiveActionParserRegistration** result);
-        };
-
-        [
             version(NTDDI_WIN10_RS1),
             activatable(NTDDI_WIN10_RS1)
         ]
@@ -1690,7 +1734,11 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveActionParser : IInspectable
         {
-            HRESULT FromJson([in] Windows.Data.Json.JsonObject* inputJson, [out, retval] IAdaptiveActionElement** result);
+            HRESULT FromJson(
+                [in] Windows.Data.Json.JsonObject* inputJson,
+                [in] AdaptiveElementParserRegistration* elementParsers,
+                [in] AdaptiveActionParserRegistration* actionParsers,
+                [out, retval] IAdaptiveActionElement** result);
         };
 
         [
@@ -1748,7 +1796,11 @@ namespace AdaptiveCards
 
             [propget] HRESULT ActionInvoker([out, retval] AdaptiveActionInvoker** value);
 
+            [propget] HRESULT OverrideStyles([out, retval] Windows.UI.Xaml.ResourceDictionary** overrideDictionary);
+
             HRESULT AddInputItem([in] IAdaptiveCardElement* cardElement, [in] Windows.UI.Xaml.UIElement* uiElement);
+            HRESULT AddError([in] ErrorStatusCode statusCode, [in] HSTRING message);
+            HRESULT AddWarning([in] WarningStatusCode statusCode, [in] HSTRING message);
         };
 
         [
@@ -1776,6 +1828,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTextBlockRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1785,6 +1838,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveImageRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1794,6 +1848,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveImageSetRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1803,6 +1858,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveContainerRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1812,6 +1868,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveColumnRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1821,6 +1878,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveColumnSetRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1830,6 +1888,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveFactRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1839,6 +1898,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveChoiceSetInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1848,6 +1908,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveDateInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1857,6 +1918,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveNumberInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1866,6 +1928,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTextInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1875,6 +1938,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTimeInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1884,6 +1948,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveToggleInputRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1893,6 +1958,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveFactSetRenderer
         {
             [default] interface IAdaptiveElementRenderer;
+            interface IAdaptiveElementParser;
         };
 
         [
@@ -1903,6 +1969,9 @@ namespace AdaptiveCards
         interface IAdaptiveRenderArgs : IInspectable
         {
             [propget] HRESULT ContainerStyle([out, retval] ContainerStyle* value);
+            [propput] HRESULT ContainerStyle([in] ContainerStyle value);
+            [propget] HRESULT ParentElement([out, retval] IInspectable** value);
+            [propput] HRESULT ParentElement([in] IInspectable* value);
         };
 
         [
@@ -1913,6 +1982,65 @@ namespace AdaptiveCards
         {
             [default] interface IAdaptiveRenderArgs;
         };
+
+        [
+            uuid(c0222295-bbec-4ff6-bdf3-f207ce78df69),
+            version(NTDDI_WIN10_RS1)
+        ]
+        interface IAdaptiveError : IInspectable
+        {
+            [propget] HRESULT StatusCode([out, retval] ErrorStatusCode* value);
+
+            [propget] HRESULT Message([out, retval] HSTRING* value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveError
+        {
+            [default] interface IAdaptiveError;
+        };
+
+        [
+            uuid(4b5b28fe-9645-4e11-89c9-b9d25dd1b777),
+            version(NTDDI_WIN10_RS1)
+        ]
+        interface IAdaptiveWarning : IInspectable
+        {
+            [propget] HRESULT StatusCode([out, retval] WarningStatusCode* value);
+
+            [propget] HRESULT Message([out, retval] HSTRING* value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveWarning
+        {
+            [default] interface IAdaptiveWarning;
+        };
+
+        [uuid(cced6652-8ca5-4841-b650-851770ec6ecf)]
+        [exclusiveto(WholeItemsPanel)]
+        [version(NTDDI_WIN10_RS1)]
+        interface IWholeItemsPanel : IInspectable
+        {
+            HRESULT GetAltText([out, retval] HSTRING *pResult);
+            HRESULT IsAllContentClippedOut([out, retval] boolean* pResult);
+            HRESULT IsTruncated([out, retval] boolean* pResult);
+        }
+
+        [version(NTDDI_WIN10_RS1)]
+        [activatable(NTDDI_WIN10_RS1)]
+        [threading(both)]
+        [marshaling_behavior(agile)]
+        runtimeclass WholeItemsPanel : Windows.UI.Xaml.Controls.Panel
+        {
+            [default] interface IWholeItemsPanel;
+        }
 
     }
 }

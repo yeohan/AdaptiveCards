@@ -732,7 +732,7 @@ export class Image extends CardElement {
             element.style.display = "flex";
             element.style.alignItems = "flex-start";
 
-            if (this.selectAction != null) {
+            if (this.selectAction != null && this.hostConfig.supportsInteractivity) {
                 element.tabIndex = 0
                 element.setAttribute("role", "button");
                 element.setAttribute("aria-label", this.selectAction.title);
@@ -1340,6 +1340,7 @@ export class ChoiceSetInput extends Input {
 
         if (json["choices"] != undefined) {
             var choiceArray = json["choices"] as Array<any>;
+            this.choices = [];
 
             for (var i = 0; i < choiceArray.length; i++) {
                 var choice = new Choice();
@@ -1917,9 +1918,13 @@ class ActionCollection {
         this.refreshContainer();
     }
 
-    private showActionCard(action: ShowCardAction) {
-        if (action.card == null) return;
+    private showActionCard(action: ShowCardAction, suppressStyle: boolean = false) {
+        if (action.card == null) {
+            return;
+        }
 
+        (<InlineAdaptiveCard>action.card).suppressStyle = suppressStyle;
+        
         var renderedCard = action.card.render();
 
         this._actionCard = renderedCard;
@@ -2042,7 +2047,7 @@ class ActionCollection {
         var forbiddenActionTypes = this._owner.getForbiddenActionTypes();
 
         if (AdaptiveCard.preExpandSingleShowCardAction && maxActions == 1 && this.items[0] instanceof ShowCardAction && isActionAllowed(this.items[i], forbiddenActionTypes)) {
-            this.showActionCard(<ShowCardAction>this.items[0]);
+            this.showActionCard(<ShowCardAction>this.items[0], true);
             this._renderedActionCount = 1;
         }
         else {
@@ -2342,7 +2347,9 @@ export class Container extends CardElement {
 
     protected hideBottomSpacer(requestingElement: CardElement) {
         if ((!requestingElement || this.isLastElement(requestingElement))) {
-            this.renderedElement.style.paddingBottom = "0px";
+            if (this.renderedElement) {
+                this.renderedElement.style.paddingBottom = "0px";
+            }
 
             super.hideBottomSpacer(requestingElement);
         }
@@ -2512,7 +2519,7 @@ export class Container extends CardElement {
             }
         }
 
-        if (this.selectAction) {
+        if (this.selectAction && this.hostConfig.supportsInteractivity) {
             element.classList.add("ac-selectable");
             element.tabIndex = 0;
             element.setAttribute("role", "button");
@@ -2908,7 +2915,7 @@ export class ColumnSet extends CardElement {
             element.className = "ac-columnSet";
             element.style.display = "flex";
 
-            if (this.selectAction) {
+            if (this.selectAction && this.hostConfig.supportsInteractivity) {
                 element.classList.add("ac-selectable");
 
                 element.onclick = (e) => {
@@ -3119,9 +3126,54 @@ export class ColumnSet extends CardElement {
     }
 }
 
-export interface IVersion {
-    major: number;
-    minor: number;
+export class Version {
+    private _versionString: string;
+    private _major: number;
+    private _minor: number;
+    private _isValid: boolean = true;
+
+    constructor(major: number = 1, minor: number = 1) {
+        this._major = major;
+        this._minor = minor;
+    }
+
+    static parse(versionString: string): Version {
+        if (!versionString) {
+            return null;
+        }
+    
+        var result = new Version();
+        result._versionString = versionString;
+
+        var regEx = /(\d+).(\d+)/gi;
+        var matches = regEx.exec(versionString);
+
+        if (matches != null && matches.length == 3) {
+            result._major = parseInt(matches[1]);
+            result._minor = parseInt(matches[2]);
+        }        
+        else {
+            result._isValid = false;
+        }
+
+        return result;
+    }
+
+    toString(): string {
+        return !this._isValid ? this._versionString : this._major + "." + this._minor;
+    }
+
+    get major(): number {
+        return this._major;
+    }
+
+    get minor(): number {
+        return this._minor;
+    }
+
+    get isValid(): boolean {
+        return this._isValid;
+    }
 }
 
 function raiseAnchorClickedEvent(anchor: HTMLAnchorElement): boolean {
@@ -3219,6 +3271,16 @@ export abstract class ContainerWithActions extends Container {
                 }
             }
         }
+    }
+
+    validate(): Array<IValidationError> {
+        var result = super.validate();
+
+        if (this._actionCollection) {
+            result = result.concat(this._actionCollection.validate());            
+        }
+
+        return result;
     }
 
     isLastElement(element: CardElement): boolean {
@@ -3330,7 +3392,7 @@ export class ActionTypeRegistry extends TypeRegistry<Action> {
 }
 
 export class AdaptiveCard extends ContainerWithActions {
-    private static currentVersion: IVersion = { major: 1, minor: 0 };
+    private static currentVersion: Version = new Version(1, 0);
 
     static preExpandSingleShowCardAction: boolean = false;
 
@@ -3346,8 +3408,9 @@ export class AdaptiveCard extends ContainerWithActions {
 
     private isVersionSupported(): boolean {
         var unsupportedVersion: boolean =
-            (AdaptiveCard.currentVersion.major < this.minVersion.major) ||
-            (AdaptiveCard.currentVersion.major == this.minVersion.major && AdaptiveCard.currentVersion.minor < this.minVersion.minor);
+            !this.version ||
+            (AdaptiveCard.currentVersion.major < this.version.major) ||
+            (AdaptiveCard.currentVersion.major == this.version.major && AdaptiveCard.currentVersion.minor < this.version.minor);
 
         return !unsupportedVersion;
     }
@@ -3386,7 +3449,7 @@ export class AdaptiveCard extends ContainerWithActions {
         return true;
     }
 
-    minVersion: IVersion = { major: 1, minor: 0 };
+    version?: Version = new Version(1, 0);
     fallbackText: string;
 
     getJsonTypeName(): string {
@@ -3404,11 +3467,18 @@ export class AdaptiveCard extends ContainerWithActions {
                 });
         }
 
-        if (!this.isVersionSupported()) {
+        if (!this.version || !this.version.isValid) {
+            result.push(
+                {
+                    error: Enums.ValidationError.PropertyCantBeNull,
+                    message: !this.version ? "The version property must be specified." : "Invalid version: " + this.version
+                });
+        }
+        else if (!this.isVersionSupported()) {
             result.push(
                 {
                     error: Enums.ValidationError.UnsupportedCardVersion,
-                    message: "The specified card version is not supported."
+                    message: "The specified card version (" + this.version + ") is not supported. The maximum supported card version is " + AdaptiveCard.currentVersion
                 });
         }
 
@@ -3418,14 +3488,7 @@ export class AdaptiveCard extends ContainerWithActions {
     parse(json: any) {
         this._cardTypeName = json["type"];
 
-        var minVersion = json["minVersion"];
-        var regEx = /(\d+).(\d+)/gi;
-        var matches = regEx.exec(minVersion);
-
-        if (matches != null && matches.length == 3) {
-            this.minVersion.major = parseInt(matches[1]);
-            this.minVersion.minor = parseInt(matches[2]);
-        }
+        this.version = Version.parse(json["version"]);
 
         this.fallbackText = json["fallbackText"];
 
@@ -3463,22 +3526,30 @@ class InlineAdaptiveCard extends AdaptiveCard {
     protected get defaultPadding(): HostConfig.PaddingDefinition {
         return new HostConfig.PaddingDefinition(
             {
-                top: Enums.Padding.Default,
+                top: this.suppressStyle ? Enums.Padding.None : Enums.Padding.Default,
                 right: Enums.Padding.Default,
-                bottom: Enums.Padding.Default,
+                bottom: this.suppressStyle ? Enums.Padding.None : Enums.Padding.Default,
                 left: Enums.Padding.Default
             }
         );
     }
 
     protected get defaultStyle(): Enums.ContainerStyle {
-        return this.hostConfig.actions.showCard.style ? this.hostConfig.actions.showCard.style : Enums.ContainerStyle.Emphasis;
+        if (this.suppressStyle) {
+            return Enums.ContainerStyle.Default;
+        }
+        else {
+            return this.hostConfig.actions.showCard.style ? this.hostConfig.actions.showCard.style : Enums.ContainerStyle.Emphasis;
+        }
     }
+
+    suppressStyle: boolean = false;
 
     render() {
         var renderedCard = super.render();
         renderedCard.setAttribute("aria-live", "polite");
         renderedCard.removeAttribute("tabindex");
+
         return renderedCard;
     }
 

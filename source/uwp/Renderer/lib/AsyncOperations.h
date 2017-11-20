@@ -35,7 +35,6 @@ public:
         THROW_IF_FAILED(coreWindow->get_Dispatcher(&m_dispatcher));
 
         m_builder = Microsoft::WRL::Make<AdaptiveCards::Uwp::XamlBuilder>();
-        THROW_IF_FAILED(m_builder->SetOverrideDictionary(m_renderer->GetOverrideDictionary()));
         UINT32 width = 0;
         UINT32 height = 0;
         bool explicitDimensions = m_renderer->GetFixedDimensions(&width, &height);
@@ -73,6 +72,7 @@ public:
     }
 
 protected:
+    Microsoft::WRL::ComPtr<AdaptiveCards::Uwp::RenderedAdaptiveCard> m_renderResult;
     Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IUIElement> m_rootXamlElement;
     Microsoft::WRL::ComPtr<ABI::Windows::UI::Core::ICoreDispatcher> m_dispatcher;
     Microsoft::WRL::ComPtr<AdaptiveCards::Uwp::XamlBuilder> m_builder;
@@ -88,20 +88,21 @@ protected:
             m_builder->AddListener(this);
             try
             {
-                ComPtr<AdaptiveCards::Uwp::RenderedAdaptiveCard> renderResult;
-                THROW_IF_FAILED(MakeAndInitialize<AdaptiveCards::Uwp::RenderedAdaptiveCard>(&renderResult));
+                THROW_IF_FAILED(MakeAndInitialize<AdaptiveCards::Uwp::RenderedAdaptiveCard>(&m_renderResult));
                 ComPtr<ABI::AdaptiveCards::Uwp::IAdaptiveElementRendererRegistration> elementRenderers;
                 THROW_IF_FAILED(m_renderer->get_ElementRenderers(&elementRenderers));
                 ComPtr<ABI::AdaptiveCards::Uwp::IAdaptiveCardResourceResolvers> resourceResolvers;
                 THROW_IF_FAILED(m_renderer->get_ResourceResolvers(&resourceResolvers));
+                ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> overrideDictionary = m_renderer->GetMergedDictionary();
 
                 ComPtr<AdaptiveCards::Uwp::AdaptiveRenderContext> renderContext;
-                RETURN_IF_FAILED(MakeAndInitialize<AdaptiveCards::Uwp::AdaptiveRenderContext>(
+                THROW_IF_FAILED(MakeAndInitialize<AdaptiveCards::Uwp::AdaptiveRenderContext>(
                     &renderContext,
                     m_renderer->GetHostConfig(),
                     elementRenderers.Get(),
                     resourceResolvers.Get(),
-                    renderResult.Get()));
+                    overrideDictionary.Get(),
+                    m_renderResult.Get()));
 
                 m_builder->BuildXamlTreeFromAdaptiveCard(m_card.Get(), &m_rootXamlElement, m_renderer.Get(), renderContext.Get());
             }
@@ -142,26 +143,29 @@ protected:
     }
 
 private:
-    std::function<ABI::Windows::UI::Xaml::IUIElement*(ABI::AdaptiveCards::Uwp::IAdaptiveCard*)> m_dispatchFunction;
+    std::function<ABI::AdaptiveCards::Uwp::IRenderedAdaptiveCard*(ABI::AdaptiveCards::Uwp::IAdaptiveCard*)> m_dispatchFunction;
 };
 
 
 
 class RenderCardAsXamlAsyncOperation : 
-    public RenderAsyncBase<ABI::Windows::UI::Xaml::UIElement>
+    public RenderAsyncBase<ABI::AdaptiveCards::Uwp::RenderedAdaptiveCard>
 {
 public:
     RenderCardAsXamlAsyncOperation(
         ABI::AdaptiveCards::Uwp::IAdaptiveCard* card,
         AdaptiveCards::Uwp::AdaptiveCardRenderer* renderer)
-        : RenderAsyncBase<ABI::Windows::UI::Xaml::UIElement>(card, renderer)
+        : RenderAsyncBase<ABI::AdaptiveCards::Uwp::RenderedAdaptiveCard>(card, renderer)
     {
         AsyncBase::Start();
     }
 
-    STDMETHODIMP ABI::Windows::Foundation::IAsyncOperation_impl<TResult_complex>::GetResults(ABI::Windows::UI::Xaml::IUIElement** rootElement)
+    STDMETHODIMP ABI::Windows::Foundation::IAsyncOperation_impl<TResult_complex>::GetResults(ABI::AdaptiveCards::Uwp::IRenderedAdaptiveCard** result)
     {
-        return m_rootXamlElement.CopyTo(rootElement);
+        Microsoft::WRL::ComPtr<ABI::AdaptiveCards::Uwp::IRenderedAdaptiveCard> renderResultAsInterface;
+        m_renderResult->SetFrameworkElement(m_rootXamlElement.Get());
+        m_renderResult.As(&renderResultAsInterface);
+        return renderResultAsInterface.CopyTo(result);
     }
 
 protected:

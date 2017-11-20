@@ -8,11 +8,12 @@
 namespace AdaptiveCards {
     namespace Uwp
     {
-        class AdaptiveImageSet :
+        class DECLSPEC_UUID("04ed4200-de21-4587-8bc5-74b000809985") AdaptiveImageSet :
             public Microsoft::WRL::RuntimeClass<
             Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>,
             ABI::AdaptiveCards::Uwp::IAdaptiveImageSet,
-            ABI::AdaptiveCards::Uwp::IAdaptiveCardElement>
+            ABI::AdaptiveCards::Uwp::IAdaptiveCardElement,
+            Microsoft::WRL::CloakedIid<ITypePeek>>
         {
             InspectableClass(RuntimeClass_AdaptiveCards_Uwp_AdaptiveImageSet, BaseTrust)
 
@@ -34,19 +35,31 @@ namespace AdaptiveCards {
             IFACEMETHODIMP get_Spacing(_Out_ ABI::AdaptiveCards::Uwp::Spacing* spacing);
             IFACEMETHODIMP put_Spacing(_In_ ABI::AdaptiveCards::Uwp::Spacing spacing);
 
-            IFACEMETHODIMP get_Separator(boolean* separator);
-            IFACEMETHODIMP put_Separator(boolean separator);
+            IFACEMETHODIMP get_Separator(_Out_ boolean* separator);
+            IFACEMETHODIMP put_Separator(_In_ boolean separator);
 
             IFACEMETHODIMP get_Id(_Out_ HSTRING* id);
             IFACEMETHODIMP put_Id(_In_ HSTRING id);
 
             IFACEMETHODIMP get_ElementTypeString(_Out_ HSTRING* value);
 
-        private:
-            // TODO: MSFT 11015796: Sync UWP Projection container classes to Shared object model counterparts.
-            Microsoft::WRL::ComPtr<ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::Uwp::IAdaptiveImage*>> m_images;
+            IFACEMETHODIMP ToJson(_Out_ ABI::Windows::Data::Json::IJsonObject** result);
 
-            std::shared_ptr<AdaptiveCards::ImageSet> m_sharedImageSet;
+            HRESULT GetSharedModel(_In_ std::shared_ptr<AdaptiveCards::ImageSet>& sharedModel);
+
+            // ITypePeek method
+            void *PeekAt(REFIID riid) override
+            {
+                return PeekHelper(riid, this);
+            }
+
+        private:
+            Microsoft::WRL::ComPtr<ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::Uwp::IAdaptiveImage*>> m_images;
+            ABI::AdaptiveCards::Uwp::ImageSize m_imageSize;
+
+            boolean m_separator;
+            Microsoft::WRL::Wrappers::HString m_id;
+            ABI::AdaptiveCards::Uwp::Spacing m_spacing;
         };
 
         ActivatableClass(AdaptiveImageSet);
