@@ -1,1 +1,0 @@
-{"version":3,"file":"numberbox.js","sourceRoot":"","sources":["../src/numberbox.ts"],"names":[],"mappings":"AAAA;IACI,IAAI,CAAC,GAAG,GAAG,CAAC;IAEZ,mDAAmD;IACnD,IAAI,MAAM,GAAG,UAAU,CAAC,IAAI,CAAC,CAAC,CAAC,cAAc,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;IAEpD,MAAM,CAAC,CAAC,CAAC;AACb,CAAC"}
