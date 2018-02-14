@@ -30,7 +30,7 @@ public:
 
     std::string GetText() const;
     void SetText(const std::string value);
-    TextBlockText GetTextForDateParsing() const;
+    DateTimePreparser GetTextForDateParsing() const;
 
     TextSize GetTextSize() const;
     void SetTextSize(const TextSize value);
