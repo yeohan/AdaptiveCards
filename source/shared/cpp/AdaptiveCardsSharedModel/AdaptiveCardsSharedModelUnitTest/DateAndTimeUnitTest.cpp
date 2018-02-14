@@ -20,9 +20,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>("{{TIME(2017-10-28T02:17:00Z)}}", blck.GetText());
 
             TextBlockText block = blck.GetTextForDateParsing();
-            Assert::AreEqual<string>(block.GetString().front()->GetOriginalText(), "{{TIME(2017-10-28T02:17:00Z)}}");
-            Assert::AreEqual<string>(block.GetString().front()->GetText(), "19:17:0");
-            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(block.GetString().front()->GetText(), "07:17 PM");
+            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::RegularString);
         }
         TEST_METHOD(TransformToTimeTest2)
         {
@@ -32,9 +31,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>("{{TIME(2017-10-27T18:19:09Z)}}", blck.GetText());
 
             TextBlockText block = blck.GetTextForDateParsing();
-            Assert::AreEqual<string>(block.GetString().front()->GetOriginalText(), "{{TIME(2017-10-27T18:19:09Z)}}");
-            Assert::AreEqual<string>(block.GetString().front()->GetText(), "11:19:9");
-            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(block.GetString().front()->GetText(), "11:19 AM");
+            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::RegularString);
         }
         TEST_METHOD(TransformToTimeWithSmallPositiveOffsetTest)
         {
@@ -45,9 +43,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>("{{TIME(2017-10-28T04:20:00+02:00)}}", blck.GetText());
 
             TextBlockText block = blck.GetTextForDateParsing();
-            Assert::AreEqual<string>(block.GetString().front()->GetOriginalText(), "{{TIME(2017-10-28T04:20:00+02:00)}}");
-            Assert::AreEqual<string>(block.GetString().front()->GetText(), "19:20:0");
-            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(block.GetString().front()->GetText(), "07:20 PM");
+            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::RegularString);
         }
         TEST_METHOD(TransformToTimeWithLargePositiveOffsetTest)
         {
@@ -58,9 +55,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>("{{TIME(2017-10-28T11:25:00+09:00)}}", blck.GetText());
 
             TextBlockText block = blck.GetTextForDateParsing();
-            Assert::AreEqual<string>(block.GetString().front()->GetOriginalText(), "{{TIME(2017-10-28T11:25:00+09:00)}}");
-            Assert::AreEqual<string>(block.GetString().front()->GetText(), "19:25:0");
-            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(block.GetString().front()->GetText(), "07:25 PM");
+            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::RegularString);
         }
         TEST_METHOD(TransformToTimeWithMinusOffsetTest)
         {
@@ -71,9 +67,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>("{{TIME(2017-10-27T22:27:00-04:00)}}", blck.GetText());
 
             TextBlockText block = blck.GetTextForDateParsing();
-            Assert::AreEqual<string>(block.GetString().front()->GetOriginalText(), "{{TIME(2017-10-27T22:27:00-04:00)}}");
-            Assert::AreEqual<string>(block.GetString().front()->GetText(), "19:27:0");
-            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(block.GetString().front()->GetText(), "07:27 PM");
+            Assert::IsTrue(block.GetString().front()->GetFormat() == TextSectionFormat::RegularString);
         }
     };
     TEST_CLASS(DateTest)
@@ -232,9 +227,8 @@ namespace AdaptiveCardsSharedModelUnitTest
             Assert::AreEqual<string>(sections[2]->GetText(), " at ");
             Assert::IsTrue(sections[2]->GetFormat() == TextSectionFormat::RegularString);
 
-            Assert::AreEqual<string>(sections[3]->GetOriginalText(), "{{TIME(2017-10-27T22:27:00-04:00)}}");
-            Assert::AreEqual<string>(sections[3]->GetText(), "19:27:0");
-            Assert::IsTrue(sections[3]->GetFormat() == TextSectionFormat::Time);
+            Assert::AreEqual<string>(sections[3]->GetText(), "07:27 PM");
+            Assert::IsTrue(sections[3]->GetFormat() == TextSectionFormat::RegularString);
 
             Assert::AreEqual<string>(sections[4]->GetText(), ".\r have a good trip");
             Assert::IsTrue(sections[4]->GetFormat() == TextSectionFormat::RegularString);
