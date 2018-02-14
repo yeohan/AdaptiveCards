@@ -5,7 +5,7 @@
 #include "Enums.h"
 #include <time.h>
 #include "ElementParserRegistration.h"
-#include "TextBlockText.h"
+#include "DateTimePreparser.h"
 
 namespace AdaptiveCards
 {

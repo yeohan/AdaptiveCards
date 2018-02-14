@@ -28,28 +28,28 @@ DateTimePreparser::DateTimePreparser(std::string in)
     ParseDateTime(in);
 }
 
-std::vector<std::shared_ptr<DateTimePreparsedToken>> DateTimePreparser::GetTextSections() const
+std::vector<std::shared_ptr<DateTimePreparsedToken>> DateTimePreparser::GetTextTokens() const
 {
-    return m_textSectionCollection;
+    return m_textTokenCollection;
 }
 
 void DateTimePreparser::AddTextToken(std::string text, DateTimePreparsedTokenFormat format)
 {
     if (!text.empty())
     {
-        m_textSectionCollection.emplace_back(std::make_shared<DateTimePreparsedToken>(text, format));
+        m_textTokenCollection.emplace_back(std::make_shared<DateTimePreparsedToken>(text, format));
     }
 }
 
 void DateTimePreparser::AddDateToken(std::string text, struct tm date, DateTimePreparsedTokenFormat format)
 {
-    m_textSectionCollection.emplace_back(std::make_shared<DateTimePreparsedToken>(text, date, format));
+    m_textTokenCollection.emplace_back(std::make_shared<DateTimePreparsedToken>(text, date, format));
 }
 
 std::string DateTimePreparser::Concatenate()
 {
     std::string formedString;
-    for (const auto& piece : m_textSectionCollection)
+    for (const auto& piece : m_textTokenCollection)
     {
         formedString += piece->GetText();
     }

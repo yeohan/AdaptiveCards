@@ -20,7 +20,7 @@ std::string DateTimeParser::GenerateString(DateTimePreparser text)
 {
     std::wostringstream parsedostr;
 
-    for (const auto& textSection : text.GetTextSections())
+    for (const auto& textSection : text.GetTextTokens())
     {
         struct tm result{};
         result.tm_mday = textSection->GetDay();
