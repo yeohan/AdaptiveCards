@@ -27,10 +27,10 @@ std::string DateTimeParser::GenerateString(DateTimePreparser text)
         result.tm_mon = textSection->GetMonth();
         result.tm_year = textSection->GetYear() >= 1900 ? textSection->GetYear() - 1900 : 0;
 
+        // using the put_time function the 3 formats are locale dependent
+        parsedostr.imbue(m_language);
         switch (textSection->GetFormat())
         {
-            // using the put_time function the 3 formats are locale dependent
-            parsedostr.imbue(m_language);
             case DateTimePreparsedTokenFormat::DateCompact:
                 parsedostr << std::put_time(&result, L"%Ex");
                 break;
