@@ -45,6 +45,8 @@ rootViewController:(UIViewController *)vc
           withCardElems:containerElem->GetItems()
           andHostConfig:config];
 
+    [[container layer] setCornerRadius:20]; // tentative change to make rounded corner
+
     [viewGroup addArrangedSubview:container];
 
     std::shared_ptr<BaseActionElement> selectAction = containerElem->GetSelectAction();
