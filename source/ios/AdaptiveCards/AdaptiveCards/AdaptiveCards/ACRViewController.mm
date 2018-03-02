@@ -280,6 +280,17 @@ using namespace AdaptiveCards;
                                                                }
                                                        range:NSMakeRange(0, content.length - 1)];
                                       lab.attributedText = content;
+
+                                      // Shrink font size to fit all text in a single line
+                                      // Take 1001 in maxLines as the indication to do so; to be replaced with any new schema in the future
+                                      if ([lab numberOfLines] == 1001)
+                                      {
+                                          [lab setNumberOfLines:1];
+                                          [lab setText:[[lab text] stringByReplacingOccurrencesOfString:@"\n" withString:@""]]; // Trim trailing line break
+                                          [lab setAdjustsFontSizeToFitWidth:YES];
+                                          [lab setLineBreakMode:NSLineBreakByTruncatingTail]; // trick to make setAdjustsFontSizeToFitWidth effective
+                                      }
+
                                       // remove tag
                                       std::string id = txtElem->GetId();
                                       std::size_t idx = id.find_last_of('_');
