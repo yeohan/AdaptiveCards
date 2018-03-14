@@ -248,6 +248,13 @@ using namespace AdaptiveCards;
                                   // Initializing NSMutableAttributedString for HTML rendering is very slow
                                   NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:htmlData options:options documentAttributes:nil error:nil];
 
+                                 {
+                                     // Trim trailing newline
+                                     NSString *text = [content mutableString];
+                                     NSString* result = [text stringByReplacingOccurrencesOfString:@"\\n$" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [text length])];
+                                     [[content mutableString] setString:result];
+                                 }
+
                                   __block ACRUILabel *lab = nil; // generate key for text map from TextBlock element's id
                                   NSString *key = [NSString stringWithCString:txtElem->GetId().c_str() encoding:[NSString defaultCStringEncoding]];
                                   // syncronize access to text map
@@ -278,7 +285,7 @@ using namespace AdaptiveCards;
                                                                NSParagraphStyleAttributeName:paragraphStyle,
                                                                NSForegroundColorAttributeName:[ACRTextBlockRenderer getTextBlockColor:txtElem->GetTextColor() colorsConfig:colorConfig subtleOption:txtElem->GetIsSubtle()],
                                                                }
-                                                       range:NSMakeRange(0, content.length - 1)];
+                                                       range:NSMakeRange(0, content.length)];
                                       lab.attributedText = content;
 
                                       // Shrink font size to fit all text in a single line
@@ -286,7 +293,6 @@ using namespace AdaptiveCards;
                                       if ([lab numberOfLines] == 1001)
                                       {
                                           [lab setNumberOfLines:1];
-                                          [lab setText:[[lab text] stringByReplacingOccurrencesOfString:@"\n" withString:@""]]; // Trim trailing line break
                                           [lab setAdjustsFontSizeToFitWidth:YES];
                                           [lab setLineBreakMode:NSLineBreakByTruncatingTail]; // trick to make setAdjustsFontSizeToFitWidth effective
                                       }
