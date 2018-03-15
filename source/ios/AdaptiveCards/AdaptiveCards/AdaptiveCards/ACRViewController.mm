@@ -248,12 +248,11 @@ using namespace AdaptiveCards;
                                   // Initializing NSMutableAttributedString for HTML rendering is very slow
                                   NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:htmlData options:options documentAttributes:nil error:nil];
 
-                                 {
-                                     // Trim trailing newline
-                                     NSString *text = [content mutableString];
-                                     NSString* result = [text stringByReplacingOccurrencesOfString:@"\\n$" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [text length])];
-                                     [[content mutableString] setString:result];
-                                 }
+                                  // Trim trailing newline
+                                  if ([[content string] hasSuffix:@"\n"])
+                                  {
+                                      [content deleteCharactersInRange:NSMakeRange([[content string] length] - 1, 1)];
+                                  }
 
                                   __block ACRUILabel *lab = nil; // generate key for text map from TextBlock element's id
                                   NSString *key = [NSString stringWithCString:txtElem->GetId().c_str() encoding:[NSString defaultCStringEncoding]];
