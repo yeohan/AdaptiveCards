@@ -44,6 +44,8 @@
           withCardElems:containerElem->GetItems()
           andHostConfig:acoConfig];
 
+    [[container layer] setCornerRadius:20]; // tentative change to make rounded corner
+
     [viewGroup addArrangedSubview:container];
 
     std::shared_ptr<BaseActionElement> selectAction = containerElem->GetSelectAction();

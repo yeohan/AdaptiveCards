@@ -186,6 +186,12 @@ using namespace AdaptiveCards;
                                   // Initializing NSMutableAttributedString for HTML rendering is very slow
                                   NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:htmlData options:options documentAttributes:nil error:nil];
 
+                                  // Trim trailing newline
+                                  if ([[content string] hasSuffix:@"\n"])
+                                  {
+                                      [content deleteCharactersInRange:NSMakeRange([[content string] length] - 1, 1)];
+                                  }
+
                                   __block ACRUILabel *lab = nil; // generate key for text map from TextBlock element's id
                                   NSString *key = [NSString stringWithCString:txtElem->GetId().c_str() encoding:[NSString defaultCStringEncoding]];
                                   // syncronize access to text map
@@ -216,8 +222,18 @@ using namespace AdaptiveCards;
                                                                NSParagraphStyleAttributeName:paragraphStyle,
                                                                NSForegroundColorAttributeName:[ACOHostConfig getTextBlockColor:txtElem->GetTextColor() colorsConfig:colorConfig subtleOption:txtElem->GetIsSubtle()],
                                                                }
-                                                       range:NSMakeRange(0, content.length - 1)];
+                                                       range:NSMakeRange(0, content.length)];
                                       lab.attributedText = content;
+
+                                      // Shrink font size to fit all text in a single line
+                                      // Take 1001 in maxLines as the indication to do so; to be replaced with any new schema in the future
+                                      if ([lab numberOfLines] == 1001)
+                                      {
+                                          [lab setNumberOfLines:1];
+                                          [lab setAdjustsFontSizeToFitWidth:YES];
+                                          [lab setLineBreakMode:NSLineBreakByTruncatingTail]; // trick to make setAdjustsFontSizeToFitWidth effective
+                                      }
+                                      
                                       // remove tag
                                       std::string id = txtElem->GetId();
                                       std::size_t idx = id.find_last_of('_');
